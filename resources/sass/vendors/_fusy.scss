@@ -1,0 +1,188 @@
+/**
+ *
+ *	Fusy – A Foundation compatible grid built on Susy
+ *
+ *	@author:	Glen Honeybone (glen@customd.com)
+ *	@version:	1.0.0
+ *
+ */
+
+// Import Susy
+@import "susy/language/susy";	// Alter this path to point to your susy.scss file
+
+// Set the global box model to border-box
+@include global-box-sizing(border-box, true);
+
+// Create a global Susy layout using our config.
+$susy: (
+	columns: 			$total-columns,
+	column-width: 		$column-width,
+	gutters: 			$column-gutter,
+	gutter-position: 	inside-static, 			// Use this to mimic Foundation's gutter settings
+	container: 			$container-width,
+	global-box-sizing:	border-box				// This tells Susy we've already set the global-box-sizing to border-box and means it's not repeated by the span mixin
+);
+
+
+/**
+ *	Media Queries
+ *
+ */
+
+// Set up our rows
+.row {
+	@include container;
+	width: 100%;
+
+	&.collapse {
+		 > .columns {
+		 	padding-left: 0;
+		 	padding-right: 0;
+		 }
+
+	}
+	.row {
+		width: auto;
+		margin-left: (gutter()) * -1;
+		margin-right: (gutter()) * -1;
+	}
+}
+
+// Set up columns, defaulted to full-width and with gutters
+.columns {
+	padding-left: (gutter() / 2);
+	padding-right: (gutter() / 2);
+	width: 100%;
+	float: left;
+
+	// Float the last child right so it's lined up (visually corrects pixel rounding errors)
+	&:last-child:not(:first-child) {
+		@include last();
+		&.end {
+			float: left;
+		}
+	}
+}
+
+/**
+ * Mixin for generating column span classes
+ *
+ */
+
+@mixin grid-classes( $total-columns , $gutters , $size ) {
+
+	/**
+	 *	Main column span classes
+	 */
+
+	// Loop through our specified number of columns and calculate their spans
+
+	@for $i from 1 through $total-columns {
+		.#{$size}-#{$i} {
+			@include span($i);
+		}
+	}
+
+
+	/*
+	 *	Offset classes
+	 */
+
+	// Loop through our specified number of columns and calculate their offsets.
+	// We don't need the last one, hence the -1
+
+	@for $i from 1 through $total-columns - 1 {
+		.#{$size}-offset-#{$i} {
+			@include push($i);
+		}
+	}
+
+	/*
+	 *	Push and pull classes
+	 */
+
+	// Loop through our specified number of columns and calculate their push and pull margins.
+	@for $i from 1 through $total-columns - 1 {
+		.#{$size}-push-#{$i} {
+			margin-left: span($i of 12 $gutters fluid);
+		}
+		.#{$size}-pull-#{$i} {
+			margin-left: span($i of 12 $gutters fluid) * -1;
+		}
+	}
+
+	// Reset push and pull
+	.#{$size}-push-0 {
+		margin-left: 0;
+	}
+	.#{$size}-pull-0 {
+		margin-right: 0;
+	}
+
+	/*
+	 *	Centered classes
+	 */
+
+	// Reset float an apply margins
+	.#{$size}-centered {
+		margin-left: auto;
+		margin-right: auto;
+		float: none;
+	}
+
+
+	.column.#{$size}-uncentered,
+	.columns.#{$size}-uncentered {
+		float: left;
+		margin-left: 0;
+	}
+
+	// Fighting [class*="column"] + [class*="column"]:last-child
+	.column.#{$size}-centered:last-child,
+	.columns.#{$size}-centered:last-child{
+		float: none;
+	}
+
+	// Fighting .column.<previous-size>-centered:last-child
+	.column.#{$size}-uncentered:last-child,
+	.columns.#{$size}-uncentered:last-child {
+		float: left;
+	}
+
+}
+
+
+// Churn out our grid classes for specified breakpoints,
+// if we've turned them on in config
+
+@if ($include-small == true) {
+	@media #{$small-up} {
+		@include grid-classes( map-get($susy, columns) , map-get($susy, gutters) / 2 , "small");
+	}
+}
+
+@if ($include-medium == true) {
+	@media #{$medium-up} {
+		@include grid-classes($total-columns, $column-gutter / 2 , "medium");
+	}
+}
+
+@if ($include-large == true) {
+	@media #{$large-up} {
+		@include grid-classes($total-columns, $column-gutter / 2 , "large");
+	}
+}
+
+@if ($include-xlarge == true) {
+	@media #{$xlarge-up} {
+		@include grid-classes($total-columns, $column-gutter / 2 , "xlarge");
+	}
+}
+
+@if ($include-xxlarge == true) {
+	@media #{$xxlarge-up} {
+		@include grid-classes($total-columns, $column-gutter / 2 , "xxlarge");
+	}
+}
+
+

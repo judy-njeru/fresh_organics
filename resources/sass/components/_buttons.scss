@@ -1,0 +1,39 @@
+.button {
+    display: inline-block;
+    padding: 7px 20px 5px;
+    font-size: rem-calc(16);
+    line-height: 1.5;
+    font-weight: 700;
+    color: #fff;
+    border-radius: 4px;
+    min-width: 130px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition-property: background, border;
+    transition-duration: .5s, .5s;
+
+    background: $orange-primary;
+    border: 1px solid $orange-primary;
+
+    &:visited, &:active, &:focus {
+        text-decoration: none;
+    }
+
+    &:hover, &:focus {
+        background-color: $orange-dark;
+        border: 1px solid $orange-dark;
+        color: #fff;
+    }
+
+    &.negative {
+        background-color: transparent;
+        border: 1px solid $orange-primary;
+        color: $orange-primary;
+
+        &:hover, &:focus {
+            background-color: $orange-primary;
+            color: #fff;
+        }
+    }
+}

@@ -1,0 +1,31 @@
+.select {
+    position: relative;
+    height: rem-calc(40);
+    border: rem-calc(1) solid $success;
+
+    select {
+        appearance: none;
+        width: 100%;
+        height: rem-calc(40);
+        padding: 0 rem-calc(10);
+        border:0;
+        background: transparent;
+    }
+
+    &::after {
+        position: absolute;
+        content:'>';
+        display: block;
+        top:rem-calc(-1);
+        right:0;
+        height: rem-calc(40);
+        width: rem-calc(39);
+        background: $orange-primary;
+        color: $white;
+        z-index: -1;
+        text-align:center;
+        line-height: rem-calc(40);
+        @include transform(rotate(90deg));
+    }
+
+}

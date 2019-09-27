@@ -1,0 +1,28 @@
+.module.text {
+    &.align-center {
+        text-align: center;
+    }
+
+    &.bg-white + .text.bg-white {
+        padding-top: 0px;
+    }
+    &.bg-grey + .text.bg-grey {
+        padding-top: 0px;
+    }
+
+    p {
+        margin-bottom: 0px;
+    }
+
+    ol, ul {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        padding-top: 0px;
+        margin-block-start: 0px;
+        margin-inline-start: 0px;
+
+        li {
+            line-height: 0px;
+        }
+    }
+}

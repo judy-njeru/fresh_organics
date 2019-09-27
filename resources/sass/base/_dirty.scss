@@ -1,0 +1,76 @@
+//Quick 'n dirty styling here
+.dev-warning{
+    position: relative;
+    padding: 10px 20px;
+    background: $black;
+    color: darken($white, 40%);
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+
+    a {
+        color: #6a989d;
+    }
+
+    i {
+        color: $white;
+    }
+
+}
+
+body.main-view{
+    padding-top: 80px;
+
+    @media #{$medium-up}{
+        padding-top: 0;
+    }
+}
+
+* {
+    -webkit-tap-highlight-color: transparentize($orange-primary, 0.8);
+}
+
+.testThingy {
+    display: block;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    height: 5px;
+    width: 72px;
+    margin-bottom: 15px;
+
+    > div {
+        position: absolute;
+        display: inline-block;
+        height: 5px;
+
+        &:nth-child(1) {
+            background-color: $orange-dark;
+            border-radius: 5px 0 0 5px;
+            width: 8px;
+            left: 0;
+        }
+        &:nth-child(2) {
+            background-color: $orange-primary;
+            border-radius: 5px 0 0 5px;
+            width: 30px;
+            left: 6px;
+            border-left: 1px solid white;
+            z-index: 2;
+        }
+        &:nth-child(3) {
+            background-color: $blue-primary;
+            border-radius: 0 5px 5px 0;
+            width: 30px;
+            right: 6px;
+            border-right: 1px solid white;
+            z-index: 2;
+        }
+        &:nth-child(4) {
+            background-color: $blue-dark;
+            border-radius: 0 5px 5px 0;
+            width: 8px;
+            right: 0px;
+        }
+    }
+}

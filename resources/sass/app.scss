@@ -1,0 +1,92 @@
+/*
+
+Base folder structure example:
+
+sass/
+|
+|– base/
+|   |– _reset.scss       # Reset/normalize
+|   |– _typography.scss  # Typography rules
+|   |– _icons.scss       # Icon rules
+|
+|– components/
+|   |– _buttons.scss     # Buttons
+|   |– _form.scss        # Form Elements
+|   |– _select.scss      # Select
+|
+|– helpers/
+|   |– _variables.scss   # Sass Variables
+|   |– _functions.scss   # Sass Functions
+|   |– _mixins.scss      # Sass Mixins
+|   |– _helpers.scss     # Class & placeholders helpers
+|
+|– layout/
+|   |– _header.scss      # Header
+|   |– _footer.scss      # Footer
+|
+|– pages/
+|   |– _home.scss        # Home specific styles
+|   |– _contact.scss     # Contact specific styles
+|
+|– vendors/
+|   |– fusy/             # Foundation utilitiess & grid
+|
+|
+`– app.scss              # primary Sass file
+
+*/
+
+// @import 'helpers/functions';
+@import 'helpers/variables';
+// @import 'helpers/mixins';
+// @import 'helpers/helpers';
+// @import 'helpers/animations';
+
+// @import 'vendors/susy/language/susy';
+// @import 'vendors/fusy';
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+@import 'base/reset';
+@import 'base/dirty';
+@import 'base/typography';
+// @import 'base/icons';
+
+// @import 'components/buttons';
+// @import 'components/form';
+// @import 'components/select';
+// @import 'components/nav';
+
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/404';
+
+// @import 'modules/modules';
+/* inject:modules */
+// @import 'modules/banner';
+// @import 'modules/text';
+// @import 'modules/image';
+// @import 'modules/hero';
+// @import 'modules/quick_link';
+// @import 'modules/news_list';
+// @import 'modules/contacts_table';
+// @import 'modules/hero_banner';
+// @import 'modules/feature_blocks';
+// @import 'modules/quote_block';
+// @import 'modules/article';
+// @import 'modules/misc_row';
+// @import 'modules/post_excerpt';
+/* endinject:modules */
+
+
+// Variables
+// @import 'variables';
+
+
+
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+

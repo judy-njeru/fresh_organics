@@ -1,0 +1,132 @@
+form {
+    margin: 0 auto;
+    width: 100%;
+    max-width: rem-calc(600);
+}
+
+.input-label {
+    display: block;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid $orange-primary;
+    height: 45px;
+    margin: 0 0 20px;
+
+    label {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 45px;
+        width: 100%;
+        padding: 0 20px;
+        line-height: 45px;
+        z-index: 2;
+        text-align: left;
+        background: $white;
+        color: $dark-grey;
+        @include transition(all 0.25s);
+    }
+
+    &.textarea {
+        height: 150px;
+
+        label {
+            height: 150px;
+        }
+
+  }
+
+}
+
+.stay-active {
+    background: $orange-primary !important;
+    color: $white !important;
+    width: 26% !important;
+    text-align: center !important;
+    padding:0 !important;
+    left: 75% !important;
+    font-size: rem-calc(12) !important;
+
+    @media #{$medium-up} {
+        font-size: rem-calc(14) !important;
+    }
+
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="search"] {
+    position: relative;
+    left: -100%;
+    height: rem-calc(45);
+    border: 0;
+    width: 75%;
+    margin: 0 auto rem-calc(10);
+    padding: 0 rem-calc(20);
+    @include box-sizing(border-box);
+    @include transition(all 0.25s);
+
+    &:focus {
+        outline: none;
+        left: 0;
+
+        & + label {
+            @extend .stay-active;
+        }
+
+    }
+
+  &.error-field {
+    border: rem-calc(1) solid $warning;
+}
+
+}
+
+textarea {
+    width: 75%;
+    min-height: rem-calc(150);
+    padding: rem-calc(10) rem-calc(20);
+    border: 0;
+    margin: 0 auto rem-calc(10);
+    @include box-sizing(border-box);
+    @include transition(all 0.25s);
+
+    &:focus {
+        outline: none;
+        left: 0;
+
+        & + label {
+            @extend .stay-active;
+        }
+
+    }
+
+    &.error-field {
+        border: rem-calc(1) solid $warning;
+    }
+
+}
+
+input[type="submit"],
+button {
+    width: 100%;
+    border:0;
+
+    &:active,
+    &:focus {
+        outline:0;
+    }
+}
+
+.error-message {
+    font-size: rem-calc(12);
+    color: $warning;
+}
+
+#search-form {
+    float: left;
+}

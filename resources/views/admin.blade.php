@@ -1,0 +1,25 @@
+@include('components.header')
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">ADMIN Dashboard</div>
+
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    <!-- You are logged in as USER! -->
+                    @include('layouts.who')
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@include('components.footer')

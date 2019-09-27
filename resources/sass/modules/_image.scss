@@ -1,0 +1,53 @@
+.module.textAndImage {
+    padding: 0;
+
+    .image-bg {
+        position: relative;
+        min-height: 300px;
+        height: 100%;
+        width: 100%;
+        display: block;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .row {
+        display: flex;
+    }
+
+    @media #{$small-medium-down} {
+        .row {
+            flex-wrap: wrap;
+        }
+
+        .content {
+            padding-top: 50px;
+            padding-bottom: 50px;
+            order: 2;
+        }
+
+        .image {
+            padding: 0;
+
+            &.top {
+                order: 1;
+            }
+            &.bottom {
+                order: 3;
+            }
+        }
+
+    }
+
+    @media #{$medium-up} {
+        &.padding {
+            padding: 70px 0;
+        }
+
+        .content {
+            padding-top: 70px;
+            padding-bottom: 70px;
+        }
+    }
+}
