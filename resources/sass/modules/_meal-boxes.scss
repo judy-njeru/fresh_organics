@@ -1,0 +1,47 @@
+section#meal-boxes {
+    h2 {
+        padding-bottom: 30px;
+    }
+
+    div.view-cascade {
+        position: relative;
+        left: 0;
+        right: 0;
+        margin-right: auto;
+        margin-left: auto;
+        top: -30px;
+        width:90%;
+    }
+
+    .button:hover.card-body{
+            display: none;
+       // box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
+
+    }
+
+    .card {
+        margin-top: 60px;
+    }
+
+    .is-hover {
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    }
+
+    .card-body {
+        padding-top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .price {
+        font-size: 14px;
+        text-align: center;
+
+        strong {
+            font-size: 20px;
+        }
+    }
+        
+}

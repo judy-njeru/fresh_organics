@@ -1,19 +1,4 @@
-.module {
-    &.modulePadding {
-        padding: 60px 0;
-    }
+.module-padding {
+    padding: 60px 0;
 
-    @media #{$medium-up} {
-        &.modulePadding {
-            padding: 70px 0;
-        }
-    }
-
-    &.bg-white {
-        background: #fff;
-    }
-
-    &.bg-grey {
-        background: $light-grey;
-    }
 }

@@ -16,7 +16,6 @@ sass/
 |
 |– helpers/
 |   |– _variables.scss   # Sass Variables
-|   |– _functions.scss   # Sass Functions
 |   |– _mixins.scss      # Sass Mixins
 |   |– _helpers.scss     # Class & placeholders helpers
 |
@@ -28,34 +27,30 @@ sass/
 |   |– _home.scss        # Home specific styles
 |   |– _contact.scss     # Contact specific styles
 |
-|– vendors/
-|   |– fusy/             # Foundation utilitiess & grid
-|
-|
 `– app.scss              # primary Sass file
 
 */
 
-// @import 'helpers/functions';
 @import 'helpers/variables';
-// @import 'helpers/mixins';
+@import 'helpers/mixins';
 // @import 'helpers/helpers';
 // @import 'helpers/animations';
 
-// @import 'vendors/susy/language/susy';
-// @import 'vendors/fusy';
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+
+@import '~owl.carousel/src/scss/owl.carousel';
 
 @import 'base/reset';
 @import 'base/dirty';
 @import 'base/typography';
 // @import 'base/icons';
 
-// @import 'components/buttons';
+@import 'components/buttons';
 // @import 'components/form';
 // @import 'components/select';
-// @import 'components/nav';
+@import 'components/nav';
 
 @import 'layout/header';
 @import 'layout/footer';
@@ -63,19 +58,12 @@ sass/
 
 // @import 'modules/modules';
 /* inject:modules */
-// @import 'modules/banner';
-// @import 'modules/text';
-// @import 'modules/image';
-// @import 'modules/hero';
-// @import 'modules/quick_link';
-// @import 'modules/news_list';
-// @import 'modules/contacts_table';
-// @import 'modules/hero_banner';
-// @import 'modules/feature_blocks';
-// @import 'modules/quote_block';
-// @import 'modules/article';
-// @import 'modules/misc_row';
-// @import 'modules/post_excerpt';
+@import 'modules/modules';
+@import 'modules/landing-page';
+@import 'modules/meal-boxes';
+@import 'modules/meal-recipes';
+@import 'modules/meal-recipe';
+
 /* endinject:modules */
 
 

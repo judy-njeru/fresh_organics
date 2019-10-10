@@ -1,0 +1,53 @@
+header#header {
+    position: relative;
+    width: 100%;
+    z-index: 10;
+    top: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: position 10s;
+    -ms-transition: position 10s;
+    -o-transition: position 10s;
+    transition: all 0.5s ease;
+    
+ 
+    img.logo {
+        width: 30%;
+    }
+
+    ul.navbar-nav {
+        align-items: center;
+
+        li {
+            a {
+                font-weight: 400;
+                color: #5B5B5B;
+            }
+        }
+    }
+
+    &.fixed {
+        position: sticky;
+        top: 0;
+        left: 0;
+        animation: smoothScroll 1s forwards;
+    }
+
+    &.top {
+        position: fixed;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    @keyframes smoothScroll {
+        0% {
+            transform: translateY(-40px);
+        }
+        100% {
+            transform: translateY(0px);
+        }
+    }
+
+
+
+   
+}
+

@@ -3,6 +3,9 @@ body {
     font-family: $sourceSans;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: #f9f9f9;
+    color: $fontDark;
+    overflow-x: hidden;
 }
 
 
@@ -24,11 +27,15 @@ h5 {
 }
 
 h1 {
+    font-family: $Playfair;
+    font-weight: 700;
     font-size: rem-calc(35);
     line-height: 1.1;
 }
 
 h2 {
+    font-family: $Playfair;
+    font-weight: 700;
     font-size: rem-calc(25);
 }
 
@@ -92,8 +99,4 @@ td {
     h5 {
         font-size: rem-calc(18);
     }
-}
-
-body {
-    color: #333;
 }

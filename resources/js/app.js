@@ -1,12 +1,5 @@
 require('./bootstrap');
+require('./header.js');
+require('./admin.js');
+require('./script.js');
 
-$("#adminDropdown").click(function(e){
-    e.preventDefault()
-    $('.dropdown-menu').css('display', 'block')
-    console.log('lll')
-})
-
-// $(document).ready(function() {
-//     const url = window.location.href; 
-//  console.log("url ", url);
-// })

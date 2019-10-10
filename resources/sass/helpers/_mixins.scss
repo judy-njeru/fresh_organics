@@ -1,302 +1,309 @@
-// /// Vertically centers the element inside of its first non-static parent,
-// /// @link http://www.sitepoint.com/centering-with-sass/ Centering With Sass
-// @mixin vertical-center {
-//   position: absolute;
-//   top: 50%;
-//   transform: translateY(-50%);
-// }
+/// Vertically centers the element inside of its first non-static parent,
+/// @link http://www.sitepoint.com/centering-with-sass/ Centering With Sass
+@mixin vertical-center {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
 
-// /// Horizontally centers the element inside of its first non-static parent,
-// /// @link http://www.sitepoint.com/centering-with-sass/ Centering With Sass
-// @mixin horizontal-center {
-//   position: absolute;
-//   left: 50%;
-//   transform: translateX(-50%);
-// }
+/// Horizontally centers the element inside of its first non-static parent,
+/// @link http://www.sitepoint.com/centering-with-sass/ Centering With Sass
+@mixin horizontal-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
-// /// Absolutely centers the element inside of its first non-static parent,
-// /// @link http://www.sitepoint.com/centering-with-sass/ Centering With Sass
-// @mixin absolute-center {
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-// }
+/// Absolutely centers the element inside of its first non-static parent,
+/// @link http://www.sitepoint.com/centering-with-sass/ Centering With Sass
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
-// @mixin block-center {
-//   display: block;
-//   margin:0 auto;
-// }
+@mixin block-center {
+  display: block;
+  margin:0 auto;
+}
 
-// /// Makes an element visually hidden, but still accessible to keyboards and assistive devices.
-// /// @link http://snook.ca/archives/html_and_css/hiding-content-for-accessibility Hiding Content for Accessibility
-// @mixin element-invisible {
-//   position: absolute !important;
-//   width: 1px;
-//   height: 1px;
-//   overflow: hidden;
-//   clip: rect(0, 0, 0, 0);
-// }
+/// Makes an element visually hidden, but still accessible to keyboards and assistive devices.
+/// @link http://snook.ca/archives/html_and_css/hiding-content-for-accessibility Hiding Content for Accessibility
+@mixin element-invisible {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
 
-// /// Reverses the CSS output created by the `element-invisible()` mixin.
-// @mixin element-invisible-off {
-//   position: static !important;
-//   height: auto;
-//   width: auto;
-//   overflow: visible;
-//   clip: auto;
-// }
+/// Reverses the CSS output created by the `element-invisible()` mixin.
+@mixin element-invisible-off {
+  position: static !important;
+  height: auto;
+  width: auto;
+  overflow: visible;
+  clip: auto;
+}
 
 
-// @mixin box-sizing($box-model) {
-//   box-sizing: $box-model;
-// }
+@mixin box-sizing($box-model) {
+  box-sizing: $box-model;
+}
 
-// @mixin border-radius($radius) {
-//   border-radius: $radius;
-//   background-clip: padding-box;
-// }
+@mixin border-radius($radius) {
+  border-radius: $radius;
+  background-clip: padding-box;
+}
 
-// // Single side border-radius
+// Single side border-radius
 
-// @mixin border-top-radius($radius) {
-//   border-top-right-radius: $radius;
-//   border-top-left-radius: $radius;
-//   background-clip: padding-box;
-// }
+@mixin border-top-radius($radius) {
+  border-top-right-radius: $radius;
+  border-top-left-radius: $radius;
+  background-clip: padding-box;
+}
 
-// @mixin border-right-radius($radius) {
-//   border-bottom-right-radius: $radius;
-//   border-top-right-radius: $radius;
-//   background-clip: padding-box;
-// }
+@mixin border-right-radius($radius) {
+  border-bottom-right-radius: $radius;
+  border-top-right-radius: $radius;
+  background-clip: padding-box;
+}
 
-// @mixin border-bottom-radius($radius) {
-//   border-bottom-right-radius: $radius;
-//    border-bottom-left-radius: $radius;
-//    background-clip: padding-box;
-// }
+@mixin border-bottom-radius($radius) {
+  border-bottom-right-radius: $radius;
+   border-bottom-left-radius: $radius;
+   background-clip: padding-box;
+}
 
-// @mixin border-left-radius($radius) {
-//   border-bottom-left-radius: $radius;
-//      border-top-left-radius: $radius;
-//      background-clip: padding-box;
-// }
+@mixin border-left-radius($radius) {
+  border-bottom-left-radius: $radius;
+     border-top-left-radius: $radius;
+     background-clip: padding-box;
+}
 
-// @mixin opacity($opacity) {
-//   opacity: $opacity;
-//   $opacity-ie: $opacity * 100;
-//   filter: alpha(opacity=$opacity-ie); //IE8
-// }
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
 
-// @mixin fix-pos($top: 0, $right: 0, $bottom: 0, $left: 0) {
-//   top: $top;
-//   right: $right;
-//   bottom: $bottom;
-//   left: $left;
-//   position: fixed;
-// }
+@mixin fix-pos($top: 0, $right: 0, $bottom: 0, $left: 0) {
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  position: fixed;
+}
 
-// @mixin box-shadow($top, $left, $blur, $color, $inset: false) {
-//   @if $inset {
-//     box-shadow:inset $top $left $blur $color;
-//   }  @else {
-//     box-shadow: $top $left $blur $color;
-//   }
-// }
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    box-shadow:inset $top $left $blur $color;
+  }  @else {
+    box-shadow: $top $left $blur $color;
+  }
+}
 
-// @mixin text-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4)) {
-//     text-shadow: $x $y $blur $color;
-// }
+@mixin text-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4)) {
+    text-shadow: $x $y $blur $color;
+}
 
-// // generic transform
-// @mixin transform($transforms) {
-//     transform: $transforms;
-// }
+// generic transform
+@mixin transform($transforms) {
+    transform: $transforms;
+}
 
-// // rotate
-// @mixin rotate ($deg) {
-//   @include transform(rotate(#{$deg} deg));
-// }
+// rotate
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg} deg));
+}
 
-// @mixin keyframes($animation-name) {
-//     @keyframes #{$animation-name} {
-//         @content;
-//     }
-// }
+@mixin keyframes($animation-name) {
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
 
-// @mixin animation($str) {
-//   animation: #{$str} ;
-// }
+@mixin animation($str) {
+  animation: #{$str} ;
+}
 
-// @mixin transition($args) {
-//   transition: $args;
-// }
+@mixin transition($args) {
+  transition: $args;
+}
 
-// @mixin gradient-text($text, $background, $gradient) {
-//   background: white;
-//   color: black;
-//   position: relative;
+@mixin gradient-text($text, $background, $gradient) {
+  background: white;
+  color: black;
+  position: relative;
 
-//   // Hide aliased edges caused by mixing blend modes. Will appear as a faint dark outline on certain backgrounds. Tweak to improve rendering
-//     text-shadow:
-//       0 0 0 $background,
-//       0 0 0 $background,
-//       0 0 0 $background,
-//       0 0 0 $background;
+  // Hide aliased edges caused by mixing blend modes. Will appear as a faint dark outline on certain backgrounds. Tweak to improve rendering
+    text-shadow:
+      0 0 0 $background,
+      0 0 0 $background,
+      0 0 0 $background,
+      0 0 0 $background;
 
-//   &::before,
-//   &::after {
-//     position: absolute;
-//     top: 0;
-//     right: 0;
-//     bottom: 0;
-//     left: 0;
+  &::before,
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 
-//     // Make cursor ignore these, allowing text underneath to be clicked and selected
-//     pointer-events: none;
-//   }
+    // Make cursor ignore these, allowing text underneath to be clicked and selected
+    pointer-events: none;
+  }
 
-//   &::before {
-//     // Gradient
-//     background: $gradient;
-//     content: '';
-//     display: block;
-//     mix-blend-mode: screen;
-//   }
+  &::before {
+    // Gradient
+    background: $gradient;
+    content: '';
+    display: block;
+    mix-blend-mode: screen;
+  }
 
-// // Everything below can be removed when using a #fff background. Ditto when using a black background, provided the mix-blend-modes, text, background color are reversed. (Screen to multiply, white to black)
+// Everything below can be removed when using a #fff background. Ditto when using a black background, provided the mix-blend-modes, text, background color are reversed. (Screen to multiply, white to black)
 
-//   &::after {
-// // Duplicate gradient text. Yes, it's ugly. Change the value below without changing the HTML for fun times.
-//     content: $text;
-//     background: $background;
+  &::after {
+// Duplicate gradient text. Yes, it's ugly. Change the value below without changing the HTML for fun times.
+    content: $text;
+    background: $background;
 
-//     color: white;
-//     mix-blend-mode: multiply;
-//   }
+    color: white;
+    mix-blend-mode: multiply;
+  }
 
-// }
+}
 
-// /// Creates a CSS triangle, which can be used for dropdown arrows, dropdown pips, and more. Use this mixin inside a `&::before` or `&::after` selector, to attach the triangle to an existing element.
-// ///
-// /// @param {Number} $triangle-size - Width of the triangle.
-// /// @param {Color} $triangle-color - Color of the triangle.
-// /// @param {Keyword} $triangle-direction - Direction the triangle points. Can be `up`, `right`, `down`, or `left`.
+/// Creates a CSS triangle, which can be used for dropdown arrows, dropdown pips, and more. Use this mixin inside a `&::before` or `&::after` selector, to attach the triangle to an existing element.
+///
+/// @param {Number} $triangle-size - Width of the triangle.
+/// @param {Color} $triangle-color - Color of the triangle.
+/// @param {Keyword} $triangle-direction - Direction the triangle points. Can be `up`, `right`, `down`, or `left`.
 
-// @mixin css-triangle(
-//   $triangle-size,
-//   $triangle-color,
-//   $triangle-direction
-// ) {
-//   content: '';
-//   display: block;
-//   width: 0;
-//   height: 0;
-//   border: inset $triangle-size;
+@mixin css-triangle(
+  $triangle-size,
+  $triangle-color,
+  $triangle-direction
+) {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border: inset $triangle-size;
 
-//   @if ($triangle-direction == down) {
-//     border-color: $triangle-color transparent transparent;
-//     border-top-style: solid;
-//     border-bottom-width: 0;
-//   }
-//   @if ($triangle-direction == up) {
-//     border-color: transparent transparent $triangle-color;
-//     border-bottom-style: solid;
-//     border-top-width: 0;
-//   }
-//   @if ($triangle-direction == right) {
-//     border-color: transparent transparent transparent $triangle-color;
-//     border-left-style: solid;
-//     border-right-width: 0;
-//   }
-//   @if ($triangle-direction == left) {
-//     border-color: transparent $triangle-color transparent transparent;
-//     border-right-style: solid;
-//     border-left-width: 0;
-//   }
-// }
+  @if ($triangle-direction == down) {
+    border-color: $triangle-color transparent transparent;
+    border-top-style: solid;
+    border-bottom-width: 0;
+  }
+  @if ($triangle-direction == up) {
+    border-color: transparent transparent $triangle-color;
+    border-bottom-style: solid;
+    border-top-width: 0;
+  }
+  @if ($triangle-direction == right) {
+    border-color: transparent transparent transparent $triangle-color;
+    border-left-style: solid;
+    border-right-width: 0;
+  }
+  @if ($triangle-direction == left) {
+    border-color: transparent $triangle-color transparent transparent;
+    border-right-style: solid;
+    border-left-width: 0;
+  }
+}
 
-// /// Creates a menu icon with a set width, height, number of bars, and colors. The mixin uses the height of the icon and the weight of the bars to determine spacing. <div class="docs-example-burger"></div>
-// ///
-// /// @param {Color} $color [$black] - Color to use for the icon.
-// /// @param {Color} $color-hover [$dark-gray] - Color to use when the icon is hovered over.
-// /// @param {Number} $width [20px] - Width of the icon.
-// /// @param {Number} $height [16px] - Height of the icon.
-// /// @param {Number} $weight [2px] - Height of individual bars in the icon.
-// /// @param {Number} $bars [3] - Number of bars in the icon.
-// @mixin hamburger(
-//   $color: $black,
-//   $color-hover: $dark-gray,
-//   $width: 20px,
-//   $height: 16px,
-//   $weight: 2px,
-//   $bars: 3
-// ) {
-//   // box-shadow CSS output
-//   $shadow: ();
-//   $hover-shadow: ();
+/// Creates a menu icon with a set width, height, number of bars, and colors. The mixin uses the height of the icon and the weight of the bars to determine spacing. <div class="docs-example-burger"></div>
+///
+/// @param {Color} $color [$black] - Color to use for the icon.
+/// @param {Color} $color-hover [$dark-gray] - Color to use when the icon is hovered over.
+/// @param {Number} $width [20px] - Width of the icon.
+/// @param {Number} $height [16px] - Height of the icon.
+/// @param {Number} $weight [2px] - Height of individual bars in the icon.
+/// @param {Number} $bars [3] - Number of bars in the icon.
+@mixin hamburger(
+  $color: $black,
+  $color-hover: $dark-gray,
+  $width: 20px,
+  $height: 16px,
+  $weight: 2px,
+  $bars: 3
+) {
+  // box-shadow CSS output
+  $shadow: ();
+  $hover-shadow: ();
 
-//   // Spacing between bars is calculated based on the total height of the icon and the weight of each bar
-//   $spacing: floor(($height - ($weight * $bars)) / ($bars - 1));
+  // Spacing between bars is calculated based on the total height of the icon and the weight of each bar
+  $spacing: floor(($height - ($weight * $bars)) / ($bars - 1));
 
-//   // Icon container
-//   position: relative;
-//   display: inline-block;
-//   vertical-align: middle;
-//   cursor: pointer;
-//   width: $width;
-//   height: $height;
+  // Icon container
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  width: $width;
+  height: $height;
 
-//   // Icon bars
-//   &::after {
-//     content: '';
-//     position: absolute;
-//     display: block;
-//     width: 100%;
-//     height: $weight;
-//     background: $color;
-//     top: 0;
-//     left: 0;
+  // Icon bars
+  &::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: $weight;
+    background: $color;
+    top: 0;
+    left: 0;
 
-//     @for $i from 2 through $bars {
-//       $offset: ($weight + $spacing) * ($i - 1);
-//       $shadow: append($shadow, 0 $offset 0 $color, comma);
-//     }
+    @for $i from 2 through $bars {
+      $offset: ($weight + $spacing) * ($i - 1);
+      $shadow: append($shadow, 0 $offset 0 $color, comma);
+    }
 
-//     box-shadow: $shadow;
-//   }
+    box-shadow: $shadow;
+  }
 
-//   // Hover state
-//   @if $color-hover {
-//     // Generate CSS
-//     @for $i from 2 through $bars {
-//       $offset: ($weight + $spacing) * ($i - 1);
-//       $hover-shadow: append($hover-shadow, 0 $offset 0 $color-hover, comma);
-//     }
+  // Hover state
+  @if $color-hover {
+    // Generate CSS
+    @for $i from 2 through $bars {
+      $offset: ($weight + $spacing) * ($i - 1);
+      $hover-shadow: append($hover-shadow, 0 $offset 0 $color-hover, comma);
+    }
 
-//     &:hover::after {
-//       background: $color-hover;
-//       box-shadow: $hover-shadow;
-//     }
-//   }
-// }
+    &:hover::after {
+      background: $color-hover;
+      box-shadow: $hover-shadow;
+    }
+  }
+}
 
-// /// Applies the micro clearfix hack popularized by Nicolas Gallagher. Include this mixin on a container if its children are all floated, to give the container a proper height.
-// /// The clearfix is augmented with specific styles to prevent borders in flexbox environments
-// /// @link http://nicolasgallagher.com/micro-clearfix-hack/ Micro Clearfix Hack
-// /// @link http://danisadesigner.com/blog/flexbox-clear-fix-pseudo-elements/ Flexbox fix
-// @mixin clearfix {
-//   &::before,
-//   &::after {
-//     content: ' ';
-//     display: table;
-//   }
+/// Applies the micro clearfix hack popularized by Nicolas Gallagher. Include this mixin on a container if its children are all floated, to give the container a proper height.
+/// The clearfix is augmented with specific styles to prevent borders in flexbox environments
+/// @link http://nicolasgallagher.com/micro-clearfix-hack/ Micro Clearfix Hack
+/// @link http://danisadesigner.com/blog/flexbox-clear-fix-pseudo-elements/ Flexbox fix
+@mixin clearfix {
+  &::before,
+  &::after {
+    content: ' ';
+    display: table;
+  }
 
-//   &::after {
-//     clear: both;
-//   }
-// }
+  &::after {
+    clear: both;
+  }
+}
+
+@mixin center-background-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
 
 
 

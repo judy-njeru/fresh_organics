@@ -1,0 +1,7 @@
+section#meal-recipe {
+    div.recipe-image {
+        @include center-background-image;
+        height: 100%;
+        width: 100%;
+    }
+}

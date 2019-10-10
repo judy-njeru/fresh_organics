@@ -12,7 +12,19 @@
 */
 
 Route::get('/', function () {
-    return view('landing');
+    return view('layouts/landing');
+});
+
+Route::get('/meal-boxes', function () {
+    return view('layouts/meal-boxes');
+});
+
+Route::get('/recipes', function () {
+    return view('layouts/meal-recipes');
+});
+
+Route::get('/recipe', function () {
+    return view('layouts/meal-recipe');
 });
 
 

@@ -1,0 +1,106 @@
+
+.meal-tabs {
+    height: 100px;
+    position: fixed;
+}
+
+
+
+
+.meal-tabs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    // background: #eee;
+		text-align: center;
+		// padding: 0 2em;
+ 
+}
+
+
+.meal-recipes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // align-items: center;
+    height: 70vh;
+    position: relative;
+    // background: #eee;
+		// text-align: center;
+		// padding: 0 2em;
+    // h1 {
+    //     font-size: 2rem;
+    //     margin: 0;
+    //     letter-spacing: 1rem;
+    // }
+    // h3 {
+    //     font-size: 1rem;
+    //     letter-spacing: 0.3rem;
+    //     opacity: 0.6;
+    // }
+}
+
+.meal-tabs-container {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    top: 58px;
+    width: 100%;
+    height: 70px;
+    // box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    z-index: 5;
+    &--top {
+        position: fixed;
+        top: 56px;
+    }
+}
+
+.meal-tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    color: #000;
+    letter-spacing: 0.1rem;
+		transition: all 0.5s ease;
+		font-size: 0.8rem;
+	  &:hover {
+        text-decoration: none;
+			color:white;
+      background: rgba(0, 174, 0, 0.8);
+			transition: all 0.5s ease;
+    }
+}
+
+.meal-tab-slider {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 6px;
+    background: $green-primary;
+    transition: left 0.3s ease;
+}
+
+@media (min-width: 800px) {
+	.meal-tabs,
+	.meal-recipes {
+    // h1 {
+    //     font-size: 3rem;
+    // }
+    // h3 {
+    //     font-size: 1rem;
+    // }
+	}
+	.meal-tab {
+		font-size: 1rem;
+	}
+}
+
+@media (max-width: 787px) {
+    .meal-recipes {
+        height: auto;
+    }
+}
