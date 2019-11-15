@@ -1,0 +1,250 @@
+div.meal-box-md {
+
+    div.meal-box-info {
+        background: #fff;
+        padding: 60px 0;
+
+        div.image {
+            @include center-background-image;
+            width: 100%;
+            
+        }
+
+        div.info {
+            padding-left: 45px;
+
+            h1 {
+                line-height: 20px;
+                text-transform: capitalize;
+            }
+
+            h6 {
+                padding-top: 30px;
+                font-size: 18px;
+                font-weight: 600;
+            }
+
+            div.delivery, div.order-day, div.delivery-day {
+                display: flex;
+                padding-bottom:10px;
+
+                svg {
+                    -webkit-transform: scaleX(-1);
+                    transform: scaleX(-1);
+                    margin-right: 20px;
+                }
+
+                p {
+                    font-size:13px;
+                }
+            }
+
+            div.weekly-recipes {
+             
+                div.days {
+                    display: flex;
+
+                    svg {
+                        cursor: pointer;
+
+                        &.day-active {
+                            g {
+                                transition: .3s;
+                                fill: $yellow-primary;
+                            }
+                        }
+                    }
+
+                    div{
+                        &:first-child {
+                            padding-right: 10px;
+                        }
+                    }
+                    text.text {
+                        font-size: 12px;
+                    }
+                }
+            }
+            div.no-of-people {
+                padding-bottom: 30px;
+
+                div.people {
+                    display: flex;
+                    padding-top: 10px;
+
+                    div.user-icon {
+                        display: flex;
+                        border: 1px solid;
+                        border-radius: 5px;
+                        padding: 16px;
+                        margin-right: 20px;
+                        cursor: pointer;
+
+                        &.people-active {
+                            border: 1px solid $yellow-primary;
+                            background: $yellow-primary;
+                            transition: .5s;
+
+                            svg {
+                                g {
+                                    fill: #fff;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            div.price {
+                p {
+                    font-weight: 600;
+                    
+                    span {
+                        font-size: 40px;
+                        letter-spacing: 3px;
+                    }
+                }
+            }
+        }
+
+        div.description {
+            padding: 60px 60px 0px 60px;
+        }
+    }
+
+    div.meal-boxes {
+        padding: 60px 0px 60px 60px;
+
+        div.boxes {
+            padding: 0;
+        }
+    }
+
+    div.order-details {
+        background: #fff;
+        margin-left: 30px;
+        padding: 20px;
+        height: fit-content;
+
+        h4 {
+            text-transform: capitalize;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        div.icons {
+            display: flex;
+            justify-content: center;
+
+            div.person, div.days {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                p {
+                font-size: 12px;
+            }
+            }
+
+            div.person {
+                padding-right: 30px
+            }
+        }
+
+        div.price {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            padding-bottom:30px;
+
+            div {
+                font-weight: 600;
+                
+                span {
+                    font-size: 34px;
+                    font-weight: 900;
+                }
+            }
+        }
+
+        div.order {
+            button {
+                width: 100%;
+            }
+        }
+    }
+
+    div.complete-order {
+            
+            
+            &.overlay {
+                position: absolute;
+                top: 0%;
+                opacity: 0;
+                height: 100vh;
+                width: 100vw;
+                background: rgba(0, 0, 0, 0.85);
+                z-index: 1;
+                transition: opacity .5s ease;
+            }
+
+        div.order-info {
+            position: absolute;
+            top: 6%;
+            right: -600px;
+            height: 100vh;
+            width: 32%;
+            background: #fff;
+            padding: 30px;
+            transition: .5s;
+
+            div.header {
+                display: flex;
+                justify-content: space-between;
+    
+                div.close {
+                    cursor: pointer;
+                }
+            }
+    
+            div.image {
+                @include center-background-image;
+                width: 100%;
+                height: 100%;
+            }
+    
+            div.total {
+                display: flex;
+                align-items: baseline;
+                justify-content: space-between;
+    
+                div {
+    
+                    &:nth-child(1) {
+                        font-weight: 600;
+                    }
+    
+                    &:nth-child(2) {
+                        font-size: 34px;
+                        font-weight: 900;
+                    }
+    
+                    span {
+                        font-size: 22px;
+                    }
+                }
+            }
+    
+            a.order {
+                button {
+                    width: 100%;
+                }
+            }
+        }
+    
+
+        
+    }
+}

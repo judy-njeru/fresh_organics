@@ -1,0 +1,25 @@
+div.checkout {
+
+    h1 {
+        text-transform: uppercase;
+        padding-bottom: 30px;;
+    }
+
+    div.address {
+        background: #fff; 
+        padding: 40px;
+
+        div.title {
+            font-size: 20px;
+            font-weight: 600;
+            padding-bottom: 20px;
+        }
+
+        form {
+            input {
+                margin-bottom: 25px;
+            }
+        }
+    }
+   
+}

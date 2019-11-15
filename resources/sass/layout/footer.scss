@@ -26,11 +26,31 @@
    .footer-menu--1 {
     width:100%
    }
-   .footer-widget-title {
-    line-height:42px;
-    margin-bottom:10px;
-    font-size:18px
+
+   div.footer-widget {
+    .footer-widget-title {
+        line-height:30px;
+        margin-bottom:0px;
+        font-size:18px;
+        color: #898b96;
+       }
+    
+       .footer-widget-sp-title {
+        line-height:30px;
+        margin-bottom:0px;
+        color: #898b96;
+        font-size:16px;
+       }
+
+       ul {
+           padding:0px;
+           
+           li {
+               list-style-type: none;
+           }
+       }
    }
+  
    .mini-footer {
     background:#192027;
     text-align:center;

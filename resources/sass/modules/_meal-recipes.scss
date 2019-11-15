@@ -104,3 +104,19 @@
         height: auto;
     }
 }
+
+main.meals {
+
+    section.meal-recipes {
+        div.card {
+
+            img.card-img-top {
+                height: 260px;
+            }
+
+            div.card-body {
+                height: 200px;
+            }
+        }
+    }
+}

@@ -21,6 +21,10 @@ section#meal-boxes {
 
     .card {
         margin-top: 60px;
+
+        img.card-img-top {
+            height: 230px;
+        }
     }
 
     .is-hover {
@@ -33,6 +37,13 @@ section#meal-boxes {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        p.card-text {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
     }
 
     .price {

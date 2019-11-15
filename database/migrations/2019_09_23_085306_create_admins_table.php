@@ -22,6 +22,9 @@ class CreateAdminsTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        DB::statement('ALTER TABLE `admins` MODIFY `password` VARBINARY(255)');
+
     }
 
     /**
@@ -31,6 +34,8 @@ class CreateAdminsTable extends Migration
      */
     public function down()
     {
+        DB::statement('ALTER TABLE `admins` MODIFY `password` VARBINARY(255)');
+
         Schema::dropIfExists('admins');
     }
 }

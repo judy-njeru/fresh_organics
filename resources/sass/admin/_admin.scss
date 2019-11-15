@@ -1,6 +1,6 @@
 @charset 'utf-8';
 
-@import 'helpers/functions';
+// @import 'helpers/functions';
 @import 'helpers/mixins';
 @import 'helpers/variables';
 
@@ -9,3 +9,5 @@
 
 @import 'components/buttons';
 @import 'components/select';
+@import 'modules/dashboard';
+@import 'modules/meal-boxes';

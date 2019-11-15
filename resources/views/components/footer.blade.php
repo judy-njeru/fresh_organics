@@ -7,8 +7,8 @@
         <div class="col-md-3 col-sm-12">
           <div class="footer-widget">
             <div class="widget-about">
-              <img src="http://placehold.it/250x80" alt="" class="img-fluid">
-              <p>Что если тут написать другой текст на русском языке, для проверки шрифта Rubik )</p>
+              <img src="{{asset('images/logo-white.png') }}" alt="logo" class="img-fluid">
+              <p>Healthy homemade meals made with a touch of love!</p>
               <ul class="contact-details">
                 <li>
                   <span class="icon-earphones"></span> Call Us:
@@ -16,7 +16,7 @@
                 </li>
                 <li>
                   <span class="icon-envelope-open"></span>
-                  <a href="mailto:support@aazztech.com">support@aazztech.com</a>
+                  <a href="mailto:support@aazztech.com">support@freshorganics.com</a>
                 </li>
               </ul>
             </div>
@@ -27,22 +27,21 @@
         <div class="col-md-3 col-sm-4">
           <div class="footer-widget">
             <div class="footer-menu footer-menu--1">
-              <h4 class="footer-widget-title">Popular Category</h4>
               <ul>
                 <li>
-                  <a href="#">Wordpress</a>
+                  <a href="#">Menu</a>
                 </li>
                 <li>
-                  <a href="#">Plugins</a>
+                  <a href="#">Meal Boxes</a>
                 </li>
                 <li>
-                  <a href="#">Joomla Template</a>
+                  <a href="#">Our foods</a>
                 </li>
                 <li>
-                  <a href="#">Admin Template</a>
+                  <a href="#">About Us</a>
                 </li>
                 <li>
-                  <a href="#">HTML Template</a>
+                  <a href="#">Be In Touch</a>
                 </li>
               </ul>
             </div>
@@ -55,28 +54,25 @@
         <div class="col-md-3 col-sm-4">
           <div class="footer-widget">
             <div class="footer-menu">
-              <h4 class="footer-widget-title">Our Company</h4>
+              <h4 class="footer-widget-title">Working Hours</h4>
+              <h6 class="footer-widget-sp-title">Delivery Hours:</h6>
               <ul>
                 <li>
-                  <a href="#">About Us</a>
+                  Mánudaga 15:30 - 20:00
                 </li>
                 <li>
-                  <a href="#">How It Works</a>
+                  Þriðjudaga og miðvikudaga kl. 15-20
+                </li>
+              </ul>
+
+
+              <h6 class="footer-widget-sp-title">Phones:</h6>
+              <ul>
+                <li>
+                  Mánudaga - miðvikudaga 10-20
                 </li>
                 <li>
-                  <a href="#">Affiliates</a>
-                </li>
-                <li>
-                  <a href="#">Testimonials</a>
-                </li>
-                <li>
-                  <a href="#">Contact Us</a>
-                </li>
-                <li>
-                  <a href="#">Plan &amp; Pricing</a>
-                </li>
-                <li>
-                  <a href="#">Blog</a>
+                  Fimmtudaga og föstudaga kl. 10-17
                 </li>
               </ul>
             </div>
@@ -89,28 +85,23 @@
         <div class="col-md-3 col-sm-4">
           <div class="footer-widget">
             <div class="footer-menu no-padding">
-              <h4 class="footer-widget-title">Help Support</h4>
+              <h4 class="footer-widget-title">Be In Touch</h4>
+              <h6 class="footer-widget-sp-title">Address:</h6>
               <ul>
                 <li>
-                  <a href="#">Support Forum</a>
+                  Nýbýlavegur 16, 200 Kópavogur
                 </li>
+              </ul>
+              <h6 class="footer-widget-sp-title">Phone:</h6>
+              <ul>
                 <li>
-                  <a href="#">Terms &amp; Conditions</a>
+                  50198424
                 </li>
+              </ul>
+              <h6 class="footer-widget-sp-title">Email:</h6>
+              <ul>
                 <li>
-                  <a href="#">Support Policy</a>
-                </li>
-                <li>
-                  <a href="#">Refund Policy</a>
-                </li>
-                <li>
-                  <a href="#">FAQs</a>
-                </li>
-                <li>
-                  <a href="#">Buyers Faq</a>
-                </li>
-                <li>
-                  <a href="#">Sellers Faq</a>
+                  support@freshorganics.com
                 </li>
               </ul>
             </div>
@@ -132,9 +123,8 @@
       <div class="row">
         <div class="col-md-12">
           <div class="copyright-text">
-            <p>© 2018
-              <a href="#">DigiPro</a>. All rights reserved. Created by
-              <a href="#">AazzTech</a>
+            <p>© <?php echo date('Y'); ?>
+              <a href="#">Fresh Organics Co.</a>
             </p>
           </div>
 

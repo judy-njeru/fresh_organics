@@ -51,7 +51,7 @@
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="/meal-boxes">Meals</a>
+                        <a class="nav-link" href="/meal-boxes">Meal boxes</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/recipes">Our Recipes</a>
