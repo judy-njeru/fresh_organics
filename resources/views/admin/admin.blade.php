@@ -10,18 +10,7 @@
 <div id="contents">
   
     <div id="dashboard-view">
-        <div class="welcome">
-            <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                <div class="content">
-                    <h2>Welcome to Dashboard</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-                </div>
-                </div>
-            </div>
-            </div>
-        </div>
+       
         <section class="statistics">
             <div class="container-fluid">
             <div class="row">

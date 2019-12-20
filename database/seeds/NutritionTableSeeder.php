@@ -14,21 +14,20 @@ class NutritionTableSeeder extends Seeder
     public function run()
     {
         //
+        Nutrition::create([
+            'name' => "Carbohydrates"
+        ]);
 
-        $Nutrition1 = new Nutrition;
-        $Nutrition1->name = "Carbohydrates";
-        $Nutrition1->save();
+        Nutrition::create([
+            'name' => "Fat"
+        ]);
 
-        $Nutrition2 = new Nutrition;
-        $Nutrition2->name = "Fat";
-        $Nutrition2->save();
-
-        $Nutrition3 = new Nutrition;
-        $Nutrition3->name = "Protein";
-        $Nutrition3->save();
-
-        $Nutrition4 = new Nutrition;
-        $Nutrition4->name = "Calories";
-        $Nutrition4->save();
+        Nutrition::create([
+            'name' => "Protein"
+        ]);
+        
+        Nutrition::create([
+            'name' => "Calories"
+        ]);
     }
 }

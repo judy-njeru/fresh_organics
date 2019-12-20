@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app', ['body_class' => 'recipe'])
 
 @section('content')
 <div id="meal-recipe" class="module-padding">
@@ -21,7 +21,7 @@
                         </svg>
                             
                         <p>Time</p>
-                        <p><?=$recipe->time ?></p>
+                        <p><?=$recipe->time ?> min</p>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4 servings">
                         <svg style="width:24px;height:24px" viewBox="0 0 24 24">
@@ -37,7 +37,7 @@
                         </svg>
                             
                         <p>Nutrition</p>
-                        <p>500 Calories 
+                        <p class="nutrition-info">500 Calories 
                             <span>
                                 <svg style="width:24px;height:24px" viewBox="0 0 24 24">
                                     <path fill="#000000" d="M20,16V4H8V16H20M22,16A2,2 0 0,1 20,18H8C6.89,18 6,17.1 6,16V4C6,2.89 6.89,2 8,2H20A2,2 0 0,1 22,4V16M16,20V22H4A2,2 0 0,1 2,20V7H4V20H16Z" />
@@ -56,9 +56,8 @@
                 <h1>Ingredients</h1>
                 <div class="ingredients">
                     <?php foreach( $ingredients as $ingredient) : ?>
-                        
                         <div class="ingredient">
-                            <img src="<?= $ingredient->ingredient_image ?>"> 
+                            <img src="{{url('/uploads/ingredients')}}/<?= $ingredient->ingredient_image ?>"> 
                             <p><?= $ingredient->ingredient_name ?></p>
                         </div>
                     
@@ -69,7 +68,25 @@
         </div>
        
     </div>
+    
+    <div class="nutrition-overlay">
+        <div class="close-nutrition-overlay">
+            <svg style="width:34px;height:34px" viewBox="0 0 24 24">
+                <path fill="#fff" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+            </svg>
+        </div>
+        <div class="content">
+            <?php foreach ($nutritionalInfo as $nutrition) : ?>
+                <div class="info">
+                    <div><?=$nutrition->nutrition_name ?></div>
+                    <div><?=$nutrition->amount ?></div>
+                </div>
+            <?php endforeach ?>
+        </div>
+    </div>
 
+
+    @include('cart')
 </div>
 
 @endsection

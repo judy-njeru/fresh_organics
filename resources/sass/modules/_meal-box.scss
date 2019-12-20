@@ -1,13 +1,30 @@
 div.meal-box-md {
 
     div.meal-box-info {
-        background: #fff;
+        background: #dedddd2b;
         padding: 60px 0;
+        position: relative;
 
-        div.image {
+        div.price {
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            p {
+                font-weight: 400;
+                font-size: 12px;
+
+                span {
+                    font-size: 22px;
+                    letter-spacing: 1px;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        div.meal-image {
             @include center-background-image;
             width: 100%;
-            
         }
 
         div.info {
@@ -24,9 +41,11 @@ div.meal-box-md {
                 font-weight: 600;
             }
 
-            div.delivery, div.order-day, div.delivery-day {
+            div.delivery,
+            div.order-day,
+            div.delivery-day {
                 display: flex;
-                padding-bottom:10px;
+                padding-bottom: 10px;
 
                 svg {
                     -webkit-transform: scaleX(-1);
@@ -35,12 +54,12 @@ div.meal-box-md {
                 }
 
                 p {
-                    font-size:13px;
+                    font-size: 13px;
                 }
             }
 
             div.weekly-recipes {
-             
+
                 div.days {
                     display: flex;
 
@@ -55,16 +74,18 @@ div.meal-box-md {
                         }
                     }
 
-                    div{
+                    div {
                         &:first-child {
                             padding-right: 10px;
                         }
                     }
+
                     text.text {
                         font-size: 12px;
                     }
                 }
             }
+
             div.no-of-people {
                 padding-bottom: 30px;
 
@@ -74,7 +95,7 @@ div.meal-box-md {
 
                     div.user-icon {
                         display: flex;
-                        border: 1px solid;
+                        border: 1px solid #5b5b5b;
                         border-radius: 5px;
                         padding: 16px;
                         margin-right: 20px;
@@ -95,16 +116,16 @@ div.meal-box-md {
                 }
             }
 
-            div.price {
-                p {
-                    font-weight: 600;
-                    
-                    span {
-                        font-size: 40px;
-                        letter-spacing: 3px;
-                    }
-                }
-            }
+            // div.price {
+            //     p {
+            //         font-weight: 600;
+
+            //         span {
+            //             font-size: 40px;
+            //             letter-spacing: 3px;
+            //         }
+            //     }
+            // }
         }
 
         div.description {
@@ -121,7 +142,7 @@ div.meal-box-md {
     }
 
     div.order-details {
-        background: #fff;
+        background: #dedddd2b;
         margin-left: 30px;
         padding: 20px;
         height: fit-content;
@@ -132,20 +153,29 @@ div.meal-box-md {
 
         p {
             text-align: center;
+
+            &.order-txt {
+
+                span.total-days,
+                span.total-persons {
+                    font-weight: 400;
+                }
+            }
         }
 
         div.icons {
             display: flex;
             justify-content: center;
 
-            div.person, div.days {
+            div.person,
+            div.days {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
 
                 p {
-                font-size: 12px;
-            }
+                    font-size: 12px;
+                }
             }
 
             div.person {
@@ -157,94 +187,97 @@ div.meal-box-md {
             display: flex;
             align-items: baseline;
             justify-content: space-between;
-            padding-bottom:30px;
+            padding-bottom: 30px;
 
             div {
-                font-weight: 600;
-                
+                font-weight: 400;
+                font-size: 14px;
+
                 span {
-                    font-size: 34px;
-                    font-weight: 900;
+                    font-size: 24px;
+                    font-weight: 600;
+                    letter-spacing: 2px;
                 }
             }
         }
 
         div.order {
-            button {
+            p {
+                display: none
+            }
+
+            a.button {
                 width: 100%;
+                text-decoration: none;
+                text-transform: uppercase;
             }
         }
     }
 
-    div.complete-order {
-            
-            
-            &.overlay {
-                position: absolute;
-                top: 0%;
-                opacity: 0;
-                height: 100vh;
-                width: 100vw;
-                background: rgba(0, 0, 0, 0.85);
+
+    @media (max-width: 767px) {
+        div.mbox {
+            padding: 0 60px;
+
+            div.meal-box-info {
+                padding: 0;
+
+                div.meal-image {
+                    min-height: 200px;
+                }
+
+                div.info {
+                    padding: 20px 20px 0px 20px;
+                }
+
+                div.description {
+                    padding: 0px 20px 20px 20px;
+                }
+            }
+
+            div.meal-boxes {
+                padding: 60px 0px;
+            }
+
+        }
+
+        div.order-details {
+            background: none;
+            margin: 0;
+
+            div.icons,
+            div.price,
+            h4,
+            p,
+            hr {
+
+                display: none;
+            }
+
+
+            div.order {
+                p {
+                    display: block
+                }
+
+                position: fixed;
+                bottom:0;
                 z-index: 1;
-                transition: opacity .5s ease;
-            }
-
-        div.order-info {
-            position: absolute;
-            top: 6%;
-            right: -600px;
-            height: 100vh;
-            width: 32%;
-            background: #fff;
-            padding: 30px;
-            transition: .5s;
-
-            div.header {
-                display: flex;
-                justify-content: space-between;
-    
-                div.close {
-                    cursor: pointer;
-                }
-            }
-    
-            div.image {
-                @include center-background-image;
                 width: 100%;
-                height: 100%;
+                background: #fff;
+                padding: 30px;
+                box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18),
+                0 4px 15px 0 rgba(0, 0, 0, .15);
             }
-    
-            div.total {
-                display: flex;
-                align-items: baseline;
-                justify-content: space-between;
-    
-                div {
-    
-                    &:nth-child(1) {
-                        font-weight: 600;
-                    }
-    
-                    &:nth-child(2) {
-                        font-size: 34px;
-                        font-weight: 900;
-                    }
-    
-                    span {
-                        font-size: 22px;
-                    }
-                }
-            }
-    
-            a.order {
-                button {
-                    width: 100%;
-                }
-            }
-        }
-    
 
-        
+            a.btnOrderMeal {}
+        }
     }
+
+
+}
+
+body.meal-box {
+    min-height: 100vh;
+
 }

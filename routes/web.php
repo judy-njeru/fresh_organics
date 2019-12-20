@@ -11,41 +11,34 @@
 |
 */
 
-Route::get('/', function () {
-    $mealRecipes = DB::table('meal_recipes')->take(3)->get();;
-    return view('layouts/landing', ['mealRecipes' => $mealRecipes]);
-});
 
-
-
-// Route::resource('meal-recipe','MealRecipeController');  
-
-// Route::get('/meal-boxes', function () {
-//     return view('layouts/MealBoxes/meal-boxes');
-// });
-Route::get('/meal-boxes',  ["uses"=>"MealBoxController@index"]);
-Route::get('/meal-boxes/{name}',  ["uses"=>"MealBoxController@show"]);
-
-
-// Route::get('/recipes', function () {
-//     return view('layouts/meal-recipes');
-// });
-
-Route::get('/recipes',  ["uses"=>"MealRecipeController@allRecipes"]);
-
-// Route::get('/recipe', function () {
-//     return view('layouts/meal-recipe');
-// });
-
-Route::get('/recipe/{id}',  ["uses"=>"MealRecipeController@index"]);
+Route::get('/',  ["uses" => "LandingPageController@index"]);
 
 Route::get('/box', function () {
-    return view('layouts/meal-box');
+    return view('/meal-box');
 });
 
-Route::get('/checkout', function () {
-    return view('layouts/checkout');
-});
+Route::get('/meal-boxes',  ["uses" => "MealBoxController@getMealBoxes"]);
+
+Route::get('/meal-boxes/{name}',  ["uses" => "MealBoxController@show"]);
+
+//Cart Route View
+Route::get('/cart',  "CartController@aindex")->name('cart.index');
+Route::post('/cart/{box}',  "CartController@store")->name('cart.store');
+// Route::get('/cart/delete/{id}',  "CartController@delete")->name('cart.delete');
+
+Route::get('/addToCart/{box}',  "CartController@addToCart")->name('cart.add');
+Route::get('/showCart',  "CartController@showCart")->name('cart.show');
+// Route::get('/delete/{id}',  "MealBoxController@delete")->name('cart.delete');
+Route::get('/cart/delete/{id}',  "CartController@delete")->name('cart.delete');
+
+Route::get('/recipes',  ["uses" => "MealRecipeController@allRecipes"]);
+Route::get('/recipe/{id}',  ["uses" => "MealRecipeController@index"]);
+
+Route::get('/checkout',  "CheckoutController@index")->name('checkout');
+Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
+
+Route::get('/thankyou', 'ConfirmationController@index')->name('confirm.index');
 
 
 Auth::routes();
@@ -53,13 +46,18 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
 
-Route::prefix('admin')->group(function() {
+Route::prefix('admin')->group(function () {
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
-    Route::get('/logout','Auth\AdminLoginController@logout')->name('admin.logout');
+    Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
-    Route::resource('meal-boxes','Admin\MealBoxController');
-    Route::resource('meal-recipes','Admin\MealRecipeController');
-    Route::resource('ingredients','Admin\IngredientController');
+    Route::resource('meal-boxes', 'Admin\MealBoxController');
+    Route::resource('meal-recipes', 'Admin\MealRecipeController');
+    Route::resource('ingredients', 'Admin\IngredientController');
 });
 
+
+
+// Route::group(['prefix' => 'admin'], function () {
+//     Voyager::routes();
+// });

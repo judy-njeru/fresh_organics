@@ -13,10 +13,10 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $user = new User;
-        $user->name = "User";
-        $user->email = "user@user.com";
-        $user->password = bcrypt('password');
-        $user->save();
+        User::create([
+            'name' => "User",
+            'email' => 'user@user.com',
+            'password' => bcrypt('password')
+        ]);
     }
 }

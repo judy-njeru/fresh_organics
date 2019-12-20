@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app', ['body_class' => 'meal_boxes'])
 
 @section('content')
 
@@ -37,6 +37,10 @@
            <?php  endforeach?>
        </div>
     </section>
+
+
 </div>
+
+@include('cart')
 
 @endsection

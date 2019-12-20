@@ -1,3 +1,6 @@
+
+@include('admin.components.header')
+@include('admin.components.sidebar')
 <div class="overlay" id="addMealBoxOvelay">
         <form action="{{ route('meal-boxes.store') }}" method="POST" name="add_meal_box" enctype="multipart/form-data">
         @csrf
@@ -33,4 +36,9 @@
             <button class="button" id="btnAddMealBox" type="submit">Add Meal Box</button>
             <a href="{{ route('meal-boxes.index') }}" class="btn btn-danger">Cancel</a> 
         </form>
+
+        <textarea class="description" name="description"></textarea>
+<textarea class="tiny"></textarea>
     </div>
+
+    @include('admin.components.footer')

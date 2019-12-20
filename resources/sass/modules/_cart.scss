@@ -1,0 +1,148 @@
+div.complete-order {
+
+    &.overlay {
+        position: fixed;
+        bottom: 0;
+        opacity: 0;
+        height: 100vh;
+        width: 100vw;
+        background: rgba(0, 0, 0, 0.85);
+        z-index: 1;
+        transition: opacity .5s ease;
+    }
+
+}
+
+div.order-info {
+    position: fixed;
+    top: 4.333em;
+    right: -900px;
+    height: 100%;
+    width: 85vw;
+    max-width: 35em;
+    background: #fff;
+    padding: 30px;
+    transition: .5s;
+    overflow-y: scroll;
+    z-index: 4;
+
+    div.header {
+        display: flex;
+        justify-content: space-between;
+
+
+        div.close {
+            cursor: pointer;
+            float: none;
+            transition: all .2s ease-in-out;
+
+            &:hover {
+                transform: scale(1.2);
+            }
+        }
+    }
+
+    div#cart-order {
+
+        div.meal {
+            position: relative;
+            margin-right: 0px;
+
+            h6 {
+                font-weight: 600;
+            }
+
+            p {
+                margin: 0;
+
+                span.total-days,
+                span.total-persons,
+                span.meal-price {
+                    font-size: 14px;
+                }
+            }
+
+            span#md,
+            span#nop,
+            span#mbp {
+                font-size: 16px;
+                font-weight: 400;
+            }
+
+            div.image {
+                min-height: 150px;
+            }
+
+            a {
+                position: absolute;
+                top: 0;
+                right: 0;
+
+                &[type="submit"] {
+                    -webkit-appearance: none;
+
+                }
+
+                svg {
+                    &:hover {
+                        path {
+                            fill: red;
+                        }
+                    }
+                }
+            }
+        }
+
+        div#cart-total {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        div.meal {
+            h6 {
+                padding-top: 30px;
+            }
+
+            a {
+                top: inherit !important;
+                bottom: 0;
+            }
+        }
+    }
+}
+
+div.image {
+    @include center-background-image;
+    width: 100%;
+    height: 100%;
+}
+
+div.total {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+
+    div {
+
+        &:nth-child(1) {
+            font-weight: 600;
+        }
+
+        &:nth-child(2) {
+            font-size: 34px;
+            font-weight: 900;
+        }
+
+        span {
+            font-size: 22px;
+        }
+    }
+}
+
+a.order {
+    button {
+        width: 100%;
+    }
+}

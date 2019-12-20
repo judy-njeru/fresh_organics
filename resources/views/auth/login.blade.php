@@ -1,4 +1,11 @@
-@extends('app')
+@extends('layouts.app', ['body_class' => 'login'])
+
+<?php  
+            $cart = session()->get('cart');
+
+           
+        
+?>
 
 @section('content')
 <div class="container module-padding ">
@@ -70,4 +77,8 @@
         </div>
     </div>
 </div>
+
+
+
+@include('cart')
 @endsection

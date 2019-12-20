@@ -66,7 +66,6 @@ class MealRecipeController extends Controller
             'calorie_amount' => 'required'
         ]);
         
-        
         $image = $request->file('image');
         $featured_new_name = time().$image->getClientOriginalName();
         $image->move('uploads/recipes',$featured_new_name);

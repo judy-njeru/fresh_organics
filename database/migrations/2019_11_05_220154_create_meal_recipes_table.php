@@ -25,7 +25,7 @@ class CreateMealRecipesTable extends Migration
             $table->timestamps();
         });
 
-        Schema::table('meal_recipes', function(Blueprint $table) {
+        Schema::table('meal_recipes', function (Blueprint $table) {
             $table->foreign('meal_boxes_fk')->references('id')->on('meal_boxes')->onDelete('cascade');
         });
     }
@@ -40,5 +40,3 @@ class CreateMealRecipesTable extends Migration
         Schema::dropIfExists('meal_recipes');
     }
 }
-
-

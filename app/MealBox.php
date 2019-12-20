@@ -8,9 +8,14 @@ class MealBox extends Model
 {
     //
     protected $fillable = [
-        'name', 
-        'description', 
-        'price', 
+        'name',
+        'description',
+        'price',
         'image'
     ];
+
+    public function mealRecipes()
+    {
+        return $this->hasMany('App\MealRecipes');
+    }
 }

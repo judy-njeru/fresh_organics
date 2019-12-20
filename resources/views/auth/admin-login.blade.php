@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app', ['body_class' => 'adminlogin'])
 
 @section('content')
 <div class="container module-padding">
@@ -82,3 +82,4 @@
     </div>
 </div>
 @endsection
+  

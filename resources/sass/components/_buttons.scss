@@ -1,4 +1,4 @@
-.button {
+.button, button[type=button] {
     display: inline-block;
     padding: 13px 26px 13px 26px;
     font-size: rem-calc(16);
@@ -15,6 +15,11 @@
 
     background: $green-primary;
     border: 1px solid $green-primary;
+
+    &:disabled {
+        background: lighten($green-primary, 30%);
+        cursor: not-allowed;
+    }
 
     &:visited, &:active, &:focus {
         text-decoration: none;

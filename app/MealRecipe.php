@@ -8,20 +8,25 @@ class MealRecipe extends Model
 {
     //
     protected $fillable = [
-        'name', 
+        'name',
         'accompaniment',
-        'description', 
+        'description',
         'image',
-        'meal_boxes_fk', 
-        'time', 
+        'meal_boxes_fk',
+        'time',
         'servings'
     ];
 
-     /**
-     * Get the ingredients for the recipe.
+    /**
+     * Define relationship to the ingredient table.
      */
     public function ingredients()
     {
-        return $this->hasMany('App\Ingredient', 'meal_recipe_id');
+        return $this->hasMany('App\Ingredient');
+    }
+
+    public function mealBoxes()
+    {
+        return $this->belongsToMany('App\MealBoxes');
     }
 }

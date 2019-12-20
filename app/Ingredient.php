@@ -10,15 +10,14 @@ class Ingredient extends Model
     protected $fillable = [
         'name',
         'image',
-        'recipe_id'
     ];
 
      /**
      * Get the recipe that owns the ingredient.
      */
 
-    public function ingredients()
+    public function meal_recipes()
     {
-        return $this->belongsToMany('App\Recipe', 'meal_recipe');
+        return $this->belongsToMany('App\MealRecipe', 'meal_recipes_ingredients');
     }
 }

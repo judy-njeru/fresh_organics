@@ -13,11 +13,11 @@ class AdminsTableSeeder extends Seeder
      */
     public function run()
     {
-        $admin = new Admin;
-        $admin->name = "Admin";
-        $admin->email = "admin@admin.com";
-        $admin->password = bcrypt('password');
-        $admin->job_title = 'Manager';
-        $admin->save();
+        Admin::create([
+            'name' => "Admin",
+            'email' => 'admin@admin.com',
+            'password' => bcrypt('password'),
+            'job_title' => 'Manager'
+        ]);
     }
 }

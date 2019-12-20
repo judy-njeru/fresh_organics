@@ -21,7 +21,6 @@ class CreateMealBoxesTable extends Migration
             $table->string('image');
             $table->timestamps();
         });
-
     }
 
     /**
@@ -35,5 +34,3 @@ class CreateMealBoxesTable extends Migration
         Schema::dropIfExists('meal_boxes');
     }
 }
-
-

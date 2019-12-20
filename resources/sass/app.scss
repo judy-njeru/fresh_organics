@@ -36,17 +36,19 @@ sass/
 // @import 'helpers/helpers';
 // @import 'helpers/animations';
 
-// Bootstrap
+// Vendors
 @import '~bootstrap/scss/bootstrap';
-
-
 @import '~owl.carousel/src/scss/owl.carousel';
+@import '~@fortawesome/fontawesome-free/css/all.css';
 
+// Base
 @import 'base/reset';
 @import 'base/dirty';
 @import 'base/typography';
 // @import 'base/icons';
 
+//Components
+@import 'components/card';
 @import 'components/buttons';
 // @import 'components/form';
 @import 'components/select';
@@ -55,6 +57,9 @@ sass/
 @import 'layout/header';
 @import 'layout/footer';
 @import 'layout/404';
+@import 'layout/exception';
+
+
 
 // @import 'modules/modules';
 /* inject:modules */
@@ -64,6 +69,7 @@ sass/
 @import 'modules/meal-box';
 @import 'modules/meal-recipes';
 @import 'modules/meal-recipe';
+@import 'modules/cart';
 @import 'modules/checkout';
 
 /* endinject:admin */
@@ -81,5 +87,3 @@ sass/
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
-
-

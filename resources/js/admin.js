@@ -1,6 +1,6 @@
 $("#adminDropdown").click(function(e){
     e.preventDefault()
-    $('.dropdown-menu').toggleClass('menu-show')
+    $('div.dropdown-menu-right').toggleClass('menu-visible')
 })
 
 
