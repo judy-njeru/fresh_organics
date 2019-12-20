@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-class CreateNutritionInfoTable extends Migration
+class CreateRecipeNutritionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreateNutritionInfoTable extends Migration
      */
     public function up()
     {
-        Schema::create('nutrition_info', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('recipe_nutritions', function (Blueprint $table) {
             $table->bigInteger('meal_recipe_fk')->unsigned();
             $table->bigInteger('nutrition_fk')->unsigned();
             $table->string('amount');
             $table->timestamps();
         });
 
-        Schema::table('nutrition_info', function(Blueprint $table) {
+        Schema::table('recipe_nutritions', function (Blueprint $table) {
             $table->foreign('meal_recipe_fk')->references('id')->on('meal_recipes')->onDelete('restrict');
             $table->foreign('nutrition_fk')->references('id')->on('nutrition')->onDelete('restrict');
         });
@@ -34,6 +33,8 @@ class CreateNutritionInfoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nutrition_info');
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('recipe_nutritions');
+        Schema::enableForeignKeyConstraints();
     }
 }

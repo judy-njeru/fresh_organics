@@ -17411,6 +17411,11 @@ section#our-story h2 {
   height: 100 !important;
 }
 
+body.login form,
+body.register form {
+  width: 100%;
+}
+
 section#meal-boxes h2 {
   padding-bottom: 30px;
 }
@@ -18030,26 +18035,31 @@ div.checkout .payment {
   margin-top: 30px;
 }
 
-div.checkout .StripeElement {
+body.checkout div.form-wrapper {
+  border: 1px solid #e0e0e0;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+body.checkout div.form-wrapper .StripeElement {
   box-sizing: border-box;
   height: 40px;
   padding: 10px 12px;
-  border: 1px solid transparent;
+  border: 1px solid #ced4da;
   border-radius: 4px;
   background-color: white;
-  box-shadow: 0 1px 3px 0 #e6ebf1;
   transition: box-shadow 150ms ease;
 }
 
-div.checkout .StripeElement--focus {
+body.checkout div.form-wrapper .StripeElement--focus {
   box-shadow: 0 1px 3px 0 #cfd7df;
 }
 
-div.checkout .StripeElement--invalid {
+body.checkout div.form-wrapper .StripeElement--invalid {
   border-color: #fa755a;
 }
 
-div.checkout .StripeElement--webkit-autofill {
+body.checkout div.form-wrapper .StripeElement--webkit-autofill {
   background-color: #fefde5 !important;
 }
 

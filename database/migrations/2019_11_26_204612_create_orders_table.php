@@ -15,26 +15,14 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id')->unsigned()->nullable();
-            $table->string('billing_email')->nullable();
-            $table->string('billing_name')->nullable();
-            $table->string('billing_address')->nullable();
-            $table->string('billing_city')->nullable();
-            $table->string('billing_province')->nullable();
-            $table->string('billing_postalcode')->nullable();
-            $table->string('billing_phone')->nullable();
-            $table->string('billing_name_on_card')->nullable();
-            $table->integer('billing_total');
-            $table->string('payment_gateway')->default('stripe');
-            $table->string('error')->nullable();
+            $table->bigInteger('user_fk')->unsigned();
+            $table->bigInteger('billing_fk')->unsigned();
             $table->timestamps();
-
         });
 
-      
-
-        Schema::table('orders', function(Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('set null');
+        Schema::table('orders', function (Blueprint $table) {
+            $table->foreign('user_fk')->references('id')->on('users')->onUpdate('cascade');
+            $table->foreign('billing_fk')->references('id')->on('billing')->onUpdate('cascade');
         });
     }
 
@@ -45,6 +33,8 @@ class CreateOrdersTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('orders');
+        Schema::enableForeignKeyConstraints();
     }
 }

@@ -21,7 +21,6 @@ class CreateMealRecipesTable extends Migration
             $table->string('image');
             $table->bigInteger('meal_boxes_fk')->unsigned();
             $table->string('time');
-            $table->string('servings');
             $table->timestamps();
         });
 
@@ -37,6 +36,8 @@ class CreateMealRecipesTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('meal_recipes');
+        Schema::enableForeignKeyConstraints();
     }
 }

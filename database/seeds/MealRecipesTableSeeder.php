@@ -13,6 +13,7 @@ class MealRecipesTableSeeder extends Seeder
     public function run()
     {
         //
+        //remove servings
 
         $mealRecipe1 = new MealRecipe;
         $mealRecipe1->name = "Buffalo drumsticks";
@@ -103,6 +104,5 @@ class MealRecipesTableSeeder extends Seeder
         $mealRecipe9->time = '25 min';
         $mealRecipe9->servings = '1';
         $mealRecipe9->save();
-       
     }
 }

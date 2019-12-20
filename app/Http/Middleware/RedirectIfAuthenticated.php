@@ -26,7 +26,7 @@ class RedirectIfAuthenticated
 
       default:
         if (Auth::guard($guard)->check()) { // any other login
-          return redirect('/home'); //redirect to home
+          return redirect('home'); //redirect to home
         }
         break;
     }
@@ -34,5 +34,3 @@ class RedirectIfAuthenticated
     return $next($request); //next means go to the next request or start loading the page
   }
 }
-
-

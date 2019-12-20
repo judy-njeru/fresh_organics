@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Order;
+
 
 class HomeController extends Controller
 {
@@ -23,7 +24,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('layouts/home');
+        return view('home');
         // return view('admin/admin');
+    }
+
+    public function getOrders()
+    {
+        $orders = Order::latest()->take(3)->get();
+
+        return view('home', ['orders' => $orders]);
     }
 }

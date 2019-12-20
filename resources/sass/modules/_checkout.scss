@@ -2,11 +2,12 @@ div.checkout {
 
     h1 {
         text-transform: uppercase;
-        padding-bottom: 30px;;
+        padding-bottom: 30px;
+        ;
     }
 
     div.address {
-        background: #fff; 
+        background: #fff;
         padding: 40px;
 
         div.title {
@@ -22,7 +23,9 @@ div.checkout {
         }
     }
 
-    .cart-order, .billing, .payment  {
+    .cart-order,
+    .billing,
+    .payment {
         padding: 20px;
         background-color: #fff;
     }
@@ -31,33 +34,36 @@ div.checkout {
         margin-top: 30px;
     }
 
+}
 
-    .StripeElement {
-        box-sizing: border-box;
-      
-        height: 40px;
-      
-        padding: 10px 12px;
-      
-        border: 1px solid transparent;
-        border-radius: 4px;
-        background-color: white;
-      
-        box-shadow: 0 1px 3px 0 #e6ebf1;
-        -webkit-transition: box-shadow 150ms ease;
-        transition: box-shadow 150ms ease;
-      }
-      
-      .StripeElement--focus {
-        box-shadow: 0 1px 3px 0 #cfd7df;
-      }
-      
-      .StripeElement--invalid {
-        border-color: #fa755a;
-      }
-      
-      .StripeElement--webkit-autofill {
-        background-color: #fefde5 !important;
-      }
-   
+body.checkout {
+    div.form-wrapper {
+        border: 1px solid #e0e0e0;
+        padding: 20px;
+        margin-bottom: 20px;
+
+        .StripeElement {
+            box-sizing: border-box;
+            height: 40px;
+            padding: 10px 12px;
+            border: 1px solid #ced4da;
+            ;
+            border-radius: 4px;
+            background-color: white;
+            -webkit-transition: box-shadow 150ms ease;
+            transition: box-shadow 150ms ease;
+        }
+
+        .StripeElement--focus {
+            box-shadow: 0 1px 3px 0 #cfd7df;
+        }
+
+        .StripeElement--invalid {
+            border-color: #fa755a;
+        }
+
+        .StripeElement--webkit-autofill {
+            background-color: #fefde5 !important;
+        }
+    }
 }

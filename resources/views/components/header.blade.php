@@ -65,6 +65,7 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a href="{{route('home')}}" class="dropdown-item">Dashboard</a>
+                            <a class="dropdown-item">Account Settings</a>
                             <a class="dropdown-item" href="#" onclick="event.preventDefault();
                                                 document.querySelector('#logout-form').submit();">
                                 Logout

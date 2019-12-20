@@ -1,27 +1,25 @@
-@extends('layouts.app')
+@extends('layouts.app', ['body_class' => 'home'])
 
 @section('content')
+<pre>
+
+
+<?php
+foreach ($orders as $key => $value) {
+    var_dump($value);
+}
+
+?>
+</pre>
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">USER Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <!-- You are logged in as USER! -->
-                    @include('layouts.who')
-                </div>
-            </div>
+    <div class="row ">
+        <div class="col-md-12">
+            <h1> Order Summary</h1>
+            <p>Below is a summary of your orders</p>
         </div>
     </div>
 </div>
 
-@include('layouts.cart')
+@include('cart')
 
 @endsection

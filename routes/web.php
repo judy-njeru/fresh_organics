@@ -25,11 +25,9 @@ Route::get('/meal-boxes/{name}',  ["uses" => "MealBoxController@show"]);
 //Cart Route View
 Route::get('/cart',  "CartController@aindex")->name('cart.index');
 Route::post('/cart/{box}',  "CartController@store")->name('cart.store');
-// Route::get('/cart/delete/{id}',  "CartController@delete")->name('cart.delete');
 
 Route::get('/addToCart/{box}',  "CartController@addToCart")->name('cart.add');
 Route::get('/showCart',  "CartController@showCart")->name('cart.show');
-// Route::get('/delete/{id}',  "MealBoxController@delete")->name('cart.delete');
 Route::get('/cart/delete/{id}',  "CartController@delete")->name('cart.delete');
 
 Route::get('/recipes',  ["uses" => "MealRecipeController@allRecipes"]);
@@ -40,10 +38,10 @@ Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
 
 Route::get('/thankyou', 'ConfirmationController@index')->name('confirm.index');
 
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@getOrders')->name('home');
 Route::get('/users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
 
 Route::prefix('admin')->group(function () {
