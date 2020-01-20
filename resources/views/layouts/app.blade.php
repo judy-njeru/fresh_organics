@@ -1,27 +1,27 @@
-
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- CSRF Token -->
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Fresh Organics | @yield('title', '')</title>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <link href="/img/favicon.ico" rel="SHORTCUT ICON" />
+    <title>Fresh Organics | @yield('title', '')</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-        <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/css/lightslider.css" />
+    <link href="/images/favicon.png" rel="SHORTCUT ICON" />
 
-        <!-- Styles -->
-        @yield('extra-css')
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/css/lightslider.css" />
 
-    </head>
+    <!-- Styles -->
+    @yield('extra-css')
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+</head>
 
 
 <body class="{{$body_class}}">
@@ -32,4 +32,5 @@
     @include('components.footer')
 
 </body>
+
 </html>

@@ -11,7 +11,7 @@
 
     <title>Fresh Organics</title>
 
-    <link href="/img/favicon.ico" rel="SHORTCUT ICON" />
+    <link href="/images/favicon.png" rel="SHORTCUT ICON" />
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -31,7 +31,11 @@
         <div class=" contents">
             <div class="col-md-12 content">
                 <h1>A premium And Authentic Mealhouse</h1>
-                <button class="button">Discover</button>
+                <a href="/meal-boxes">
+                    <button class="button">Discover</button>
+                </a>
+
+                </a>
             </div>
         </div>
     </section>
@@ -140,7 +144,10 @@
     <section class="container module-padding" id="ingredients">
         <div class="row">
             <div class="col-md-12">
-                <h1>Discover</h1>
+                <a href="/meal-recipes">
+                    <h1>Discover</h1>
+                </a>
+
             </div>
         </div>
         <div class="row">
@@ -151,6 +158,7 @@
         <div class="row">
             <div class="col-md-12">
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                <p>We work with various farms around the country and outsource some of the best ingredients the country has to offer. We deliver ingredients that are organic and produced in a way that doesn't impact the environment.</p>
             </div>
         </div>
         <div class="row">

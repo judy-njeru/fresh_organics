@@ -111,7 +111,6 @@ $(".btnOrderMeal").on("click", function(e) {
         },
         dataType: "JSON"
     }).done(function(data) {
-        console.log("data", data);
         getCart();
 
         $(".order-info").css("right", "0px");
@@ -137,12 +136,14 @@ function getCart() {
     }).done(function(data) {
         $("#cart-qty").text(data.totalQty);
         const cartQuantity = parseInt($("#cart-qty").text());
+        console.log("cartQuantity ", cartQuantity);
 
-        if (cartQuantity == 0) {
-            $("p.empty").text("cart is empty");
-            $("#cart-order").css("display", "none");
-        } else {
+        if (cartQuantity != 0) {
+            console.log("item");
+            $(".btnCompleteOrder").css("display", "block");
             $("#cart-order").empty();
+            $("p.empty").css("display", "none");
+            $("#cart-order").css("display", "block");
             const cart = `<div id="cart-total"><div>Total</div> <div>${data.totalPrice} kr.</div></div>`;
             for (const key in data) {
                 if (data.hasOwnProperty(key)) {
@@ -179,7 +180,55 @@ function getCart() {
                 }
             }
             $("#cart-order").append(cart);
+        } else {
+            $(".btnCompleteOrder").css("display", "none");
+            $("p.empty").css("display", "block");
+            $("p.empty").text("cart is empty");
+            $("#cart-order").css("display", "none");
         }
+
+        // if (cartQuantity == 0) {
+        //     $("p.empty").text("cart is empty");
+        //     $("#cart-order").css("display", "none");
+        // } else {
+        //     $("#cart-order").empty();
+        //     const cart = `<div id="cart-total"><div>Total</div> <div>${data.totalPrice} kr.</div></div>`;
+        //     for (const key in data) {
+        //         if (data.hasOwnProperty(key)) {
+        //             const meals = data[key];
+        //             for (let key in meals) {
+        //                 const cartElement = `
+        //                     <div class="row meal" id="${key}">
+        //                         <div class="col-md-5">
+        //                             <div class="image" style="background-image:url('/uploads/boxes/${meals[key].item.image}')">
+        //                             </div>
+        //                         </div>
+        //                         <div class="col-md-7">
+        //                             <h6>${meals[key].item.name} Meal Box</h6>
+        //                             <p ><span class="total-days">Meal Days: <span id="md">${meals[key].item.days} Days</span> </span> </p>
+        //                             <p><span class="total-persons">No. of People:  <span id="nop">${meals[key].item.people} Persons</span></span> </p>
+        //                             <p><span class="meal-price">Meal Box Price: <span id="mbp"> ${meals[key].mealTotalPrice} </span></span> </p>
+        //                             <a type="submit" href= {{ route('cart.delete') }} id="${key}">
+        //                             <svg class="btnDeleteCartItem" style="width:24px;height:24px" viewBox="0 0 24 24">
+        //                                 <path fill="#383535 " d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
+        //                             </svg>
+        //                             </a>
+        //                         </div>
+        //                     </div>
+        //                     <hr>`;
+
+        //                 $("#frmDeleteCartItem").append(
+        //                     "<input name='_token' value='" +
+        //                         csrfVar +
+        //                         "' type='hidden'>"
+        //                 );
+
+        //                 $("#cart-order").prepend(cartElement);
+        //             }
+        //         }
+        //     }
+        //     $("#cart-order").append(cart);
+        // }
     });
 }
 

@@ -17422,6 +17422,11 @@ body.register form {
   width: 100%;
 }
 
+body.login div.card-body,
+body.register div.card-body {
+  padding: 30px;
+}
+
 body.meal-box div.card {
   height: 100%;
 }
@@ -17944,6 +17949,11 @@ div.order-info div.header div.close:hover {
   transform: scale(1.2);
 }
 
+div.order-info div.disclaimer p {
+  margin: 0;
+  color: #00AE00;
+}
+
 div.order-info div#cart-order div.meal {
   position: relative;
   margin-right: 0px;
@@ -18084,6 +18094,10 @@ body.home div.order-container div.header div.hd-dt div:first-child {
   text-transform: uppercase;
   font-size: 12px;
   color: #555 !important;
+}
+
+body.home div.order-container div.order-overview {
+  padding: 14px 18px;
 }
 
 body.home div.order-container div.order-overview img {
@@ -19138,6 +19152,14 @@ body.admin-dashboard div#contents section.status div.box i {
 body.admin-dashboard p.message {
   color: #fff;
   padding-left: 20px;
+}
+
+body.adminlogin div.card-body {
+  padding: 30px;
+}
+
+body.adminlogin div.card-body form {
+  width: 100%;
 }
 
 div#contents {

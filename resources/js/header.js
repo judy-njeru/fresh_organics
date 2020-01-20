@@ -37,10 +37,6 @@ $("#toggle").click(function() {
 //     }
 // });
 
-// if(window.location.href == "/"){
-//     console.log("yay")
-// }
-
 $(document).ready(function() {
     if (document.location.pathname.indexOf("/meal-boxes/") == 0) {
         document.body.className = "meal-box";
@@ -48,7 +44,7 @@ $(document).ready(function() {
 });
 
 var fullPath = location.pathname + location.search + location.hash;
-console.log("fullPath ", fullPath);
+// console.log("fullPath ", fullPath);
 if (fullPath == "/") {
     $("body").addClass("landing");
     $("nav").removeClass("bg-white");

@@ -40,6 +40,13 @@ div.order-info {
         }
     }
 
+    div.disclaimer {
+        p {
+            margin: 0;
+            color: $green-primary;
+        }
+    }
+
     div#cart-order {
         div.meal {
             position: relative;

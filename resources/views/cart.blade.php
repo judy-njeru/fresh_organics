@@ -9,6 +9,11 @@
             </div>
         </div>
         <hr>
+        <div class="disclaimer">
+            <p>Order by 12:00(noon) to receive the meal today between 15:00 and 20:00</p>
+            <p>Orders made after 12:00(noon) will be delivered the next working day</p>
+        </div>
+        <hr>
         <div>
             <div id="cart-order"> </div>
             <p class="empty"></p>
