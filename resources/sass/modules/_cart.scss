@@ -1,5 +1,4 @@
 div.complete-order {
-
     &.overlay {
         position: fixed;
         bottom: 0;
@@ -8,9 +7,8 @@ div.complete-order {
         width: 100vw;
         background: rgba(0, 0, 0, 0.85);
         z-index: 1;
-        transition: opacity .5s ease;
+        transition: opacity 0.5s ease;
     }
-
 }
 
 div.order-info {
@@ -22,19 +20,19 @@ div.order-info {
     max-width: 35em;
     background: #fff;
     padding: 30px;
-    transition: .5s;
+    transition: 0.5s;
     overflow-y: scroll;
+    box-shadow: 0 0.125rem 0.25rem rgba(38, 38, 38, 0.075) !important;
     z-index: 4;
 
     div.header {
         display: flex;
         justify-content: space-between;
 
-
         div.close {
             cursor: pointer;
             float: none;
-            transition: all .2s ease-in-out;
+            transition: all 0.2s ease-in-out;
 
             &:hover {
                 transform: scale(1.2);
@@ -43,7 +41,6 @@ div.order-info {
     }
 
     div#cart-order {
-
         div.meal {
             position: relative;
             margin-right: 0px;
@@ -80,7 +77,6 @@ div.order-info {
 
                 &[type="submit"] {
                     -webkit-appearance: none;
-
                 }
 
                 svg {
@@ -125,7 +121,6 @@ div.total {
     justify-content: space-between;
 
     div {
-
         &:nth-child(1) {
             font-weight: 600;
         }

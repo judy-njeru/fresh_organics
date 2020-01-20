@@ -17,6 +17,7 @@ class CreateOrdersTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_fk')->unsigned();
             $table->bigInteger('billing_fk')->unsigned();
+            $table->integer('order_total');
             $table->timestamps();
         });
 

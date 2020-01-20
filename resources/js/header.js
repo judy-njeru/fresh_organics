@@ -68,6 +68,8 @@ if (fullPath == "/") {
 // }
 
 if (window.location.href.indexOf("recipes") > -1) {
+    $("header#header").css("position", "fixed!important");
+    $("span.meal-tab-slider").css({ width: "399.692px !important", left: 0 });
     class StickyNavigation {
         constructor() {
             this.currentId = null;
@@ -110,15 +112,19 @@ if (window.location.href.indexOf("recipes") > -1) {
                 $(".meal-tabs").offset().top +
                 $(".meal-tabs").height() -
                 this.tabContainerHeight;
+            // console.log("offset ", offset);
             // console.log($('.meal-tabs').offset().top)//0
             // console.log($('.meal-tabs').height())
             // console.log(this.tabContainerHeight)
             if ($(window).scrollTop() > offset) {
-                $(".meal-tabs-container").addClass("meal-tabs-container--top");
+                // $(".meal-tabs-container").addClass("meal-tabs-container--top");
+                console.log("off1");
             } else {
-                $(".meal-tabs-container").removeClass(
-                    "meal-tabs-container--top"
-                );
+                // $(".meal-tabs-container").removeClass(
+                //     "meal-tabs-container--top"
+                // );
+                console.log("off2");
+                $("span.meal-tab-slider").css({ width: "399.692px", left: 0 });
             }
         }
 

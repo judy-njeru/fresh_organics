@@ -17,7 +17,7 @@ class CreateBillingTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_fk')->unsigned();
             $table->bigInteger('payment_fk')->unsigned();
-            $table->string('billing_name')->unique();
+            $table->string('billing_name');
             $table->string('billing_email');
             $table->string('billing_address');
             $table->string('billing_city');

@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use Illuminate\Support\Facades\DB;
 
 
-use App\NutritionInfo;
+use App\RecipeNutritions;
 use App\Ingredient;
-use App\IngredientInfo;
+use App\RecipeIngredients;
 use App\MealRecipe;
 use App\MealBox;
 use Illuminate\Http\Request;
@@ -21,9 +22,9 @@ class MealRecipeController extends Controller
      */
     public function index()
     {
-         //
-         $mealRecipes = MealRecipe::all();
-         return view('admin.layouts.meal-recipes', ['mealRecipes' => $mealRecipes]);
+        //
+        $mealRecipes = MealRecipe::all();
+        return view('admin.layouts.meal-recipes', ['mealRecipes' => $mealRecipes]);
     }
 
     /**
@@ -65,22 +66,22 @@ class MealRecipeController extends Controller
             'carb_amount' => 'required',
             'calorie_amount' => 'required'
         ]);
-        
+
         $image = $request->file('image');
-        $featured_new_name = time().$image->getClientOriginalName();
-        $image->move('uploads/recipes',$featured_new_name);
-        
+        $featured_new_name = time() . $image->getClientOriginalName();
+        $image->move('uploads/recipes', $featured_new_name);
+
         $ingredientImage1 = $request->file('ingredient_image_1');
-        $newImage1 = time().$ingredientImage1->getClientOriginalName();
-        $ingredientImage1->move('uploads/ingredients',$newImage1);
-        
+        $newImage1 = time() . $ingredientImage1->getClientOriginalName();
+        $ingredientImage1->move('uploads/ingredients', $newImage1);
+
         $ingredientImage2 = $request->file('ingredient_image_2');
-        $newImage2 = time().$ingredientImage2->getClientOriginalName();
-        $ingredientImage2->move('uploads/ingredients',$newImage2);
+        $newImage2 = time() . $ingredientImage2->getClientOriginalName();
+        $ingredientImage2->move('uploads/ingredients', $newImage2);
 
         $ingredientImage3 = $request->file('ingredient_image_3');
-        $newImage3 = time().$ingredientImage3->getClientOriginalName();
-        $ingredientImage3->move('uploads/ingredients',$newImage3);
+        $newImage3 = time() . $ingredientImage3->getClientOriginalName();
+        $ingredientImage3->move('uploads/ingredients', $newImage3);
 
         // Start transaction!
         DB::beginTransaction();
@@ -98,18 +99,13 @@ class MealRecipeController extends Controller
                 "meal_boxes_fk"  => $request->meal_boxes_fk,
                 "time"  => $request->time
             ])->id;
-        } catch(ValidationException $e)
-        {
+        } catch (Exception $e) {
             // Rollback and then redirect
             // back to form with errors
             DB::rollback();
             return Redirect::to('/admin/meal-recipes/create')
-                ->withErrors( $e->getErrors() )
+                ->withErrors($e->getErrors())
                 ->withInput();
-        } catch(\Exception $e)
-        {
-            DB::rollback();
-            throw $e;
         }
 
 
@@ -117,106 +113,81 @@ class MealRecipeController extends Controller
 
         $ids = array();
         $id = 0;
-    
+
         try {
             $data = array(
-                array('name'=> $request->get('ingredient_name_1'), 'image'=> $newImage1),
-                array('name'=> $request->get('ingredient_name_2'), 'image'=> $newImage2),
-                array('name'=> $request->get('ingredient_name_3'), 'image'=> $newImage3)
+                array('name' => $request->get('ingredient_name_1'), 'image' => $newImage1),
+                array('name' => $request->get('ingredient_name_2'), 'image' => $newImage2),
+                array('name' => $request->get('ingredient_name_3'), 'image' => $newImage3)
             );
-            
+
             //Not optimal solution--- find new solutions later
             // $ingredient_fk1 = $id - 1;
             // $ingredient_fk2 = $id - 2;
             // $ingredient_fk3 = $id - 3;
 
             // dd($ids[0]);
-            
+
             foreach ($data as $value) {
-                $id = Ingredient::create($value)->id; 
+                $id = Ingredient::create($value)->id;
                 array_push($ids, $id);
             }
-        } catch(ValidationException $e)
-        {
+        } catch (Exception $e) {
             // Rollback and then redirect
             // back to form with errors
             DB::rollback();
             return Redirect::to('/admin/meal-recipes/create')
-                ->withErrors( $e->getErrors() )
+                ->withErrors($e->getErrors())
                 ->withInput();
-        } catch(\Exception $e)
-        {
-            DB::rollback();
-            throw $e;
         }
 
 
-        //insert into ingredients_info
+        //insert into recipe_ingredients
 
         try {
             $ingredients = array(
-                array('ingredient_fk'=> $ids[0], 'recipe_fk'=> $recipeID),
-                array('ingredient_fk'=> $ids[1], 'recipe_fk'=> $recipeID),
-                array('ingredient_fk'=> $ids[2], 'recipe_fk'=> $recipeID)
+                array('ingredient_fk' => $ids[0], 'recipe_fk' => $recipeID),
+                array('ingredient_fk' => $ids[1], 'recipe_fk' => $recipeID),
+                array('ingredient_fk' => $ids[2], 'recipe_fk' => $recipeID)
             );
-    
+
             foreach ($ingredients as $ingredient) {
                 # code...
-                IngredientInfo::create($ingredient);
+                RecipeIngredients::create($ingredient);
             }
-        } catch(ValidationException $e)
-        {
-            // Rollback and then redirect
-            // back to form with errors
+        } catch (Exception $e) {
             DB::rollback();
             return Redirect::to('/admin/meal-recipes/create')
-                ->withErrors( $e->getErrors() )
+                ->withErrors($e->getErrors())
                 ->withInput();
-        } catch(\Exception $e)
-        {
-            DB::rollback();
-            throw $e;
         }
 
+        //insert into recipe_nutritions
 
-           //insert into nutrition_info
-
-           try {
+        try {
             $nutrition_info = array(
-                array('meal_recipe_fk'=> $recipeID, 'nutrition_fk'=> 1, 'amount'=> $request->get('fat_amount')),
-                array('meal_recipe_fk'=> $recipeID, 'nutrition_fk'=> 2, 'amount'=> $request->get('protein_amount')),
-                array('meal_recipe_fk'=> $recipeID, 'nutrition_fk'=> 3, 'amount'=> $request->get('carb_amount')),
-                array('meal_recipe_fk'=> $recipeID, 'nutrition_fk'=> 4, 'amount'=> $request->get('calorie_amount')),
+                array('meal_recipe_fk' => $recipeID, 'nutrition_fk' => 1, 'amount' => $request->get('fat_amount')),
+                array('meal_recipe_fk' => $recipeID, 'nutrition_fk' => 2, 'amount' => $request->get('protein_amount')),
+                array('meal_recipe_fk' => $recipeID, 'nutrition_fk' => 3, 'amount' => $request->get('carb_amount')),
+                array('meal_recipe_fk' => $recipeID, 'nutrition_fk' => 4, 'amount' => $request->get('calorie_amount')),
             );
-    
+
             foreach ($nutrition_info as $info) {
                 # code...
-                NutritionInfo::create($info);
+                RecipeNutritions::create($info);
             }
-        } catch(ValidationException $e)
-        {
-            // Rollback and then redirect
-            // back to form with errors
+        } catch (Exception $e) {
             DB::rollback();
             return Redirect::to('/admin/meal-recipes/create')
-                ->withErrors( $e->getErrors() )
+                ->withErrors($e->getErrors())
                 ->withInput();
-        } catch(\Exception $e)
-        {
-            DB::rollback();
-            throw $e;
         }
 
-        // If we reach here, then
-        // data is valid and working.
         // Commit the queries!
         DB::commit();
-        
-  
-        return redirect()->route("meal-recipes.index")->with('message','Great! MealBox created successfully');
 
-       
 
+        return redirect()->route("meal-recipes.index")->with('message', 'Great! MealBox created successfully');
     }
 
     /**
@@ -239,7 +210,7 @@ class MealRecipeController extends Controller
         //
         // $mealRecipes = MealRecipe::all();
         $mealRecipes = MealRecipe::where('meal_boxes_fk')->get();
-         return view('admin.layouts.meal-recipes', ['mealRecipes' => $mealRecipes]);
+        return view('admin.layouts.meal-recipes', ['mealRecipes' => $mealRecipes]);
         //  return view('admin.CRUD.MealBox.Edit',['mealBox'  => $mealBox]);
 
     }
@@ -253,7 +224,7 @@ class MealRecipeController extends Controller
     public function edit(MealRecipe $mealRecipe)
     {
         //
-        return view('admin.CRUD.MealRecipe.Edit',['mealRecipe'  => $mealRecipe]);
+        return view('admin.CRUD.MealRecipe.Edit', ['mealRecipe'  => $mealRecipe]);
     }
 
     /**
@@ -266,8 +237,8 @@ class MealRecipeController extends Controller
     public function update(Request $request, MealRecipe $mealRecipe)
     {
         //
-         //
-         $request->validate([
+        //
+        $request->validate([
             'name' => 'required',
             'description' => 'required',
             'accompaniment' => 'required',
@@ -275,37 +246,40 @@ class MealRecipeController extends Controller
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
-        
-        if ($request->hasFile('image'))
-        {
-            
+
+        if ($request->hasFile('image')) {
+
             // $image = $request->file('image');
             // $name = str_slug($request->name).'.'.$image->getClientOriginalName();
             // $destinationPath = public_path('/uploads/recipes');
             // $imagePath = $destinationPath. "/".  $name;
             // $image->move($destinationPath, $name);
-            
-            
+
+
             // $mealRecipe->image = $name;
+            $recipeImage = public_path("uploads/recipes/{$mealRecipe->image}"); // get previous image from folder
+            if (file_exists($recipeImage)) { // unlink or remove previous image from folder
+                unlink($recipeImage);
+            }
 
             $image = $request->file('image');
-            $featured_new_name = time().$image->getClientOriginalName();
-            $image->move('uploads/recipes',$featured_new_name);
-    
+            $featured_new_name = time() . $image->getClientOriginalName();
+            $image->move('uploads/recipes', $featured_new_name);
+
             $mealRecipe->image = $featured_new_name;
-        }   
+        }
         $mealRecipe->name = $request->get('name');
-            $mealRecipe->description = $request->get('description');
-            $mealRecipe->accompaniment = $request->get('accompaniment');
-            
-            $mealRecipe->time = $request->get('time');
+        $mealRecipe->description = $request->get('description');
+        $mealRecipe->accompaniment = $request->get('accompaniment');
+
+        $mealRecipe->time = $request->get('time');
 
         $mealRecipe->save();
         // $mealRecipe->update(MealRecipe);
 
-  
+
         return redirect()->route('meal-recipes.index')
-                        ->with('success','Meal Recipe updated successfully');
+            ->with('message', 'Meal Recipe updated successfully');
     }
 
     /**
@@ -316,11 +290,19 @@ class MealRecipeController extends Controller
      */
     public function destroy(MealRecipe $mealRecipe)
     {
-        //
+        $mealRecipeID = $mealRecipe->id;
+        $ingredients = MealRecipe::with('ingredients')->find($mealRecipeID);
+        $recipeImage = public_path("uploads/recipes/{$mealRecipe->image}"); // get previous image from folder
+
+        foreach ($ingredients->ingredients as $ingredient) {
+            $ingredientImage = public_path("uploads/ingredients/{$ingredient->image}");
+            unlink($ingredientImage);
+        }
+        unlink($recipeImage);
         $mealRecipe->delete();
-  
+
         // return redirect()->route('meal-recipes.show')
         return redirect()->route('meal-recipes.index')
-                ->with('success','Meal Recipe deleted successfully');
+            ->with('message', 'Meal Recipe deleted successfully');
     }
 }

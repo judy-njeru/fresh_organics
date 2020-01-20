@@ -31,60 +31,56 @@ sass/
 
 */
 
-@import 'helpers/variables';
-@import 'helpers/mixins';
+@import "helpers/variables";
+@import "helpers/mixins";
 // @import 'helpers/helpers';
 // @import 'helpers/animations';
 
 // Vendors
-@import '~bootstrap/scss/bootstrap';
-@import '~owl.carousel/src/scss/owl.carousel';
-@import '~@fortawesome/fontawesome-free/css/all.css';
+@import "~bootstrap/scss/bootstrap";
+@import "~owl.carousel/src/scss/owl.carousel";
+@import "~@fortawesome/fontawesome-free/css/all.css";
 
 // Base
-@import 'base/reset';
-@import 'base/dirty';
-@import 'base/typography';
+@import "base/reset";
+@import "base/dirty";
+@import "base/typography";
 // @import 'base/icons';
 
 //Components
-@import 'components/card';
-@import 'components/buttons';
-// @import 'components/form';
-@import 'components/select';
-@import 'components/nav';
+@import "components/card";
+@import "components/buttons";
+@import "components/form";
+@import "components/select";
+@import "components/nav";
 
-@import 'layout/header';
-@import 'layout/footer';
-@import 'layout/404';
-@import 'layout/exception';
-
-
+@import "layout/header";
+@import "layout/footer";
+@import "layout/404";
+@import "layout/exception";
 
 // @import 'modules/modules';
 /* inject:modules */
-@import 'modules/modules';
-@import 'modules/landing-page';
-@import 'modules/login';
-@import 'modules/meal-boxes';
-@import 'modules/meal-box';
-@import 'modules/meal-recipes';
-@import 'modules/meal-recipe';
-@import 'modules/cart';
-@import 'modules/checkout';
+@import "modules/modules";
+@import "modules/landing-page";
+@import "modules/login";
+@import "modules/meal-boxes";
+@import "modules/meal-box";
+@import "modules/meal-recipes";
+@import "modules/meal-recipe";
+@import "modules/cart";
+@import "modules/checkout";
+@import "modules/home";
 
 /* endinject:admin */
-@import 'admin/admin';
+@import "admin/admin";
 
 /* endinject:modules */
-
 
 // Variables
 // @import 'variables';
 
-
-
 .navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }

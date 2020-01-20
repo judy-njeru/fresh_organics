@@ -2,16 +2,15 @@ body {
     font-family: $sourceSans;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    // background-color: #ececec;
     background-color: #fff;
     color: $fontDark;
     overflow-x: hidden;
+    margin: 0;
 
     &.full-height {
         overflow: hidden;
     }
 }
-
 
 h1,
 h2,
@@ -83,7 +82,6 @@ td {
         margin-top: 0;
     }
 }
-
 
 @media #{$medium-up} {
     h1 {

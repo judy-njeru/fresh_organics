@@ -21,8 +21,8 @@ class CreateRecipeNutritionsTable extends Migration
         });
 
         Schema::table('recipe_nutritions', function (Blueprint $table) {
-            $table->foreign('meal_recipe_fk')->references('id')->on('meal_recipes')->onDelete('restrict');
-            $table->foreign('nutrition_fk')->references('id')->on('nutrition')->onDelete('restrict');
+            $table->foreign('meal_recipe_fk')->references('id')->on('meal_recipes')->onDelete('cascade');
+            $table->foreign('nutrition_fk')->references('id')->on('nutrition')->onDelete('cascade');
         });
     }
 

@@ -1,165 +1,80 @@
-
-.meal-tabs {
-    height: 100px;
-    position: fixed;
-}
-
-
-
-
-.meal-tabs {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    // background: #eee;
-		text-align: center;
-		// padding: 0 2em;
- 
-}
-
-
-.meal-recipes {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    // align-items: center;
-    height: 70vh;
-    position: relative;
-    // background: #eee;
-		// text-align: center;
-		// padding: 0 2em;
-    // h1 {
-    //     font-size: 2rem;
-    //     margin: 0;
-    //     letter-spacing: 1rem;
-    // }
-    // h3 {
-    //     font-size: 1rem;
-    //     letter-spacing: 0.3rem;
-    //     opacity: 0.6;
-    // }
-}
-
-.meal-tabs-container {
-    display: flex;
-    flex-direction: row;
-    position: fixed;
-    top: 58px;
-    width: 100%;
-    height: 70px;
-    // box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    background: #fff;
-    z-index: 5;
-    &--top {
+body.recipes {
+    section.meal-tabs {
         position: fixed;
-        top: 56px;
-    }
-}
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 70px;
+        align-items: center;
+        position: relative;
+        text-align: center;
 
-.meal-tab {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    color: #000;
-    letter-spacing: 0.1rem;
-		transition: all 0.5s ease;
-		font-size: 0.8rem;
-	  &:hover {
-        text-decoration: none;
-			color:white;
-      background: rgba(0, 174, 0, 0.8);
-			transition: all 0.5s ease;
-    }
-}
+        .meal-tabs-container {
+            display: flex;
+            flex-direction: row;
+            position: fixed;
+            top: 90px;
+            width: 100%;
+            height: 70px;
+            background: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            z-index: 5;
 
-.meal-tab-slider {
-    position: absolute;
-    bottom: 0;
-    width: 0;
-    height: 6px;
-    background: $green-primary;
-    transition: left 0.3s ease;
-}
+            &--top {
+                position: fixed;
+                top: 56px;
+            }
 
-@media (min-width: 800px) {
+            a.meal-tab {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex: 1;
+                color: #000;
+                letter-spacing: 0.1rem;
+                transition: all 0.5s ease;
+                font-size: 0.8rem;
 
-	.meal-tab {
-		font-size: 1rem;
-	}
-}
-
-@media (max-width: 787px) {
-    .meal-recipes {
-        height: auto;
-    }
-}
-
-// main.meals {
-
-//     section.meal-recipes {
-//         div.card {
-
-//             img.card-img-top {
-//                 height: 260px;
-//             }
-
-//             div.card-body {
-//                 height: 200px;
-//             }
-//         }
-//     }
-// }
-
-p.nutrition-info {
-    cursor: pointer;
-}
-
-div.nutrition-overlay {
-    display: none;
-    position: fixed;
-    top:0;
-    z-index: 10;
-    height: 100vh;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.8);
-
-    div.close-nutrition-overlay {
-        position: absolute;
-        right: 2%;
-        top: 2%;
-        cursor: pointer;
-        transition: .5s;
-
-        &:hover {
-            svg {
-                path {
-                    fill: $yellow-primary;
+                &:hover {
+                    text-decoration: none;
+                    color: white;
+                    background: rgba(0, 174, 0, 0.8);
+                    transition: all 0.5s ease;
                 }
+
+                @media (min-width: 800px) {
+                    font-size: 1rem;
+                }
+            }
+
+            span.meal-tab-slider {
+                position: absolute;
+                bottom: 0;
+                width: 0;
+                height: 6px;
+                background: $green-primary;
+                transition: left 0.3s ease;
             }
         }
     }
 
-    div.content {
-        position: relative;
-        top: 10%;
-        background: #fff;
-        height: 60%;
-        width: 60%;
-        margin: 0 auto;
-
-        div.info {
+    main.meals {
+        // margin-top: 100px;
+        section.meal-recipes {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
             position: relative;
-            top: 10%;
-            width: 80%;
-            // height: 80%;
-            margin: 0 auto;
-            // border: 1px solid #333;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-        }
+            margin-bottom: 80px;
 
+            div.card {
+                height: 100%;
+            }
+
+            @media (max-width: 787px) {
+                height: auto;
+            }
+        }
     }
 }

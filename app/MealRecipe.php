@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class MealRecipe extends Model
 {
     //
+    protected $table = 'meal_recipes';
+
     protected $fillable = [
         'name',
         'accompaniment',
@@ -14,7 +16,6 @@ class MealRecipe extends Model
         'image',
         'meal_boxes_fk',
         'time',
-        'servings'
     ];
 
     /**
@@ -22,11 +23,17 @@ class MealRecipe extends Model
      */
     public function ingredients()
     {
-        return $this->hasMany('App\Ingredient');
+        // return $this->hasMany('App\Ingredient')->withPivot('recipe_ingredients', 'ingredient_fk', 'recipe_fk');
+        return $this->belongsToMany('App\Ingredient', 'recipe_ingredients', 'recipe_fk', 'ingredient_fk');
     }
 
     public function mealBoxes()
     {
-        return $this->belongsToMany('App\MealBoxes');
+        return $this->belongsToMany('App\MealBox');
+    }
+
+    public function nutrition()
+    {
+        return $this->belongsToMany('App\Nutrition', 'recipe_nutritions', 'meal_recipe_fk', 'nutrition_fk')->withPivot('amount');
     }
 }

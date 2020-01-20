@@ -23,7 +23,7 @@ class CreateAdminsTable extends Migration
             $table->timestamps();
         });
 
-        DB::statement('ALTER TABLE `admins` MODIFY `password` VARBINARY(255)');
+        // DB::statement('ALTER TABLE `admins` MODIFY `password` VARBINARY(255)');
 
     }
 

@@ -46,4 +46,14 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Location');
     }
+
+    public function billing()
+    {
+        return $this->hasOne('App\Billing');
+    }
+
+    public function orderdetails()
+    {
+        return $this->hasOne('App\OrderDetails');
+    }
 }

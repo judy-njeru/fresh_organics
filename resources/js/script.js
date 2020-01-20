@@ -138,7 +138,7 @@ function getCart() {
         $("#cart-qty").text(data.totalQty);
         const cartQuantity = parseInt($("#cart-qty").text());
 
-        if (cartQuantity === 0) {
+        if (cartQuantity == 0) {
             $("p.empty").text("cart is empty");
             $("#cart-order").css("display", "none");
         } else {

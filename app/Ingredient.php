@@ -12,12 +12,13 @@ class Ingredient extends Model
         'image',
     ];
 
-     /**
+    /**
      * Get the recipe that owns the ingredient.
      */
 
     public function meal_recipes()
     {
-        return $this->belongsToMany('App\MealRecipe', 'meal_recipes_ingredients');
+        // return $this->belongsToMany('App\MealRecipe', 'recipe_ingredients', 'recipe_fk', 'ingredient_fk');
+        return $this->belongsToMany('App\MealRecipe', 'recipe_ingredients', 'recipe_fk', 'ingredient_fk');
     }
 }

@@ -17,7 +17,7 @@ class IngredientController extends Controller
     {
         //
         $ingredients = Ingredient::all();
-         return view('admin.layouts.ingredients', ['ingredients' => $ingredients]);
+        return view('admin.layouts.ingredients', ['ingredients' => $ingredients]);
     }
 
     /**

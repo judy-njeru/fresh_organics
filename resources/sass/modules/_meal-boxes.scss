@@ -1,8 +1,11 @@
-section#meal-boxes {
-    h2 {
-        padding-bottom: 30px;
+body.meal-box {
+    div.card {
+        height: 100%;
     }
 
-    
-        
+    section#meal-boxes {
+        h2 {
+            padding-bottom: 30px;
+        }
+    }
 }

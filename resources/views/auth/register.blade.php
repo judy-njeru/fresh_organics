@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" class="frm-form">
                         @csrf
 
                         <div class="form-group row">
@@ -79,7 +79,7 @@
                             <label for="zip" class="col-md-4 col-form-label text-md-right">{{ __('Zip Code') }}</label>
 
                             <div class="col-md-6">
-                                <input id="zip" type="number" class="form-control @error('zip') is-invalid @enderror" name="zip" required autocomplete="zip">
+                                <input id="zip" class="form-control @error('zip') is-invalid @enderror" name="zip" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="4" required autocomplete="zip">
 
                                 @error('zip')
                                 <span class="invalid-feedback" role="alert">
@@ -104,5 +104,4 @@
 </div>
 @endsection
 
-<!-- <input id="zip" class="form-control @error('zip') is-invalid @enderror" name="zip" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="4" required autocomplete="zip"> -->
-<!--  -->
+<input id="zip" class="form-control @error('zip') is-invalid @enderror" name="zip" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="4" required autocomplete="zip">

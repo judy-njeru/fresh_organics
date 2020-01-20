@@ -4,22 +4,22 @@
 <div class="container module-padding">
     <div class="row justify-content-center">
         <div class="col-md-8">
-        @if ($errors->any())
+            @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
-                        <strong>{{ $error }}</strong>
+                    <strong>{{ $error }}</strong>
                     @endforeach
                 </ul>
             </div>
-        @endif       
+            @endif
             <div class="card">
                 <div class="card-header">{{ __('ADMIN Login') }}</div>
 
                 <div class="card-body">
-                  
-                    
-                    <form method="POST" action="{{ route('admin.login.submit') }}">
+
+
+                    <form method="POST" action="{{ route('admin.login.submit') }}" class="frm-form">
                         @csrf
 
                         <div class="form-group row">
@@ -29,9 +29,9 @@
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -43,9 +43,9 @@
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -69,9 +69,9 @@
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    {{ __('Forgot Your Password?') }}
+                                </a>
                                 @endif
                             </div>
                         </div>
@@ -82,4 +82,3 @@
     </div>
 </div>
 @endsection
-  

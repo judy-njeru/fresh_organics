@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\OrderDetails;
+use Auth;
+use Illuminate\Support\Facades\DB;
 
 
 class HomeController extends Controller
@@ -30,8 +33,12 @@ class HomeController extends Controller
 
     public function getOrders()
     {
-        $orders = Order::latest()->take(3)->get();
 
+        $orders = DB::table('meal_boxes')
+            ->select('name', 'description', 'image', 'price', 'user_fk', 'quantity')
+            ->join('order_details', 'meal_box_fk', '=', 'meal_boxes.id')
+            ->where('order_details.user_fk', Auth::id())
+            ->get();
         return view('home', ['orders' => $orders]);
     }
 }

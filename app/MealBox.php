@@ -14,8 +14,18 @@ class MealBox extends Model
         'image'
     ];
 
-    public function mealRecipes()
+    public function mealrecipes()
     {
         return $this->hasMany('App\MealRecipes');
     }
+
+    public function orders()
+    {
+        return $this->hasMany('App\Orders');
+    }
+
+    // public function orderdetails()
+    // {
+    //     return $this->belongsToMany('App\OrderDetails');
+    // }
 }

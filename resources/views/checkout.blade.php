@@ -5,14 +5,12 @@
 
 <div class="container checkout module-padding">
     @if (session()->has('success_message'))
-    <div class="spacer"></div>
     <div class="alert alert-success">
         {{ session()->get('success_message') }}
     </div>
     @endif
 
     @if(count($errors) > 0)
-    <div class="spacer"></div>
     <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
@@ -30,37 +28,37 @@
                 @if (auth()->user())
                 <input type="email" class="form-control" id="email" name="email" value="{{ auth()->user()->email }}" readonly>
                 @else
-                <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" required>
+                <input type="email" class="form-control" id="email" name="email" value="" required>
                 @endif
             </div>
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" name="name" value="aa" required>
+                <input type="text" class="form-control" id="name" name="name" value="{{ old('name')  }}">
             </div>
             <div class="form-group">
                 <label for="address">Address</label>
-                <input type="text" class="form-control" id="address" name="address" value="rr" required>
+                <input type="text" class="form-control" id="address" name="address" value="{{old('address') }}">
             </div>
 
             <div class="half-form">
                 <div class="form-group">
                     <label for="city">City</label>
-                    <input type="text" class="form-control" id="city" name="city" value="gg" required>
+                    <input type="text" class="form-control" id="city" name="city" value="{{ old('city') }}">
                 </div>
                 <div class="form-group">
                     <label for="province">Province</label>
-                    <input type="text" class="form-control" id="province" name="province" value="ssd" required>
+                    <input type="text" class="form-control" id="province" name="province" value="{{ old('province') }}">
                 </div>
             </div> <!-- end half-form -->
 
             <div class="half-form">
                 <div class="form-group">
                     <label for="postalcode">Postal Code</label>
-                    <input type="text" class="form-control" id="postalcode" name="postalcode" value="fdgd" required>
+                    <input type="text" class="form-control" id="postalcode" name="postalcode" value="{{ old('postalcode') }}">
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone</label>
-                    <input type="text" class="form-control" id="phone" name="phone" value="fgdd" required>
+                    <input type="text" class="form-control" id="phone" name="phone" value="{{ old('phone') }}">
                 </div>
             </div> <!-- end half-form -->
         </div>
@@ -83,10 +81,7 @@
                 <!-- Used to display form errors -->
                 <div id="card-errors" role="alert"></div>
             </div>
-
-
             <button type="submit" id="complete-order" class="button full-width">Complete Order</button>
-
         </div>
     </form>
 </div>

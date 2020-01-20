@@ -1,7 +1,7 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default admin-nav">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">my<span class="main-color">Dashboard</span></a>
+      <a class="navbar-brand" href="#"><span class="main-color">Dashboard</span></a>
 
       @if(Auth::guard('admin')->check())
       <li class="nav-item dropdown">
@@ -19,15 +19,15 @@
                 <h6>admin@admin.com</h6>
               </div>
             </li>
-            <li class="class-full-of-rum">
-              <a href="http://127.0.0.1:8001/admin/profile">
+            <li class="profile">
+              <a href="/admin/profile">
                 <i class="fa fa-user fa-2x"></i>
                 Profile
               </a>
             </li>
 
             <li>
-              <a href="/" target="_blank">
+              <a href="/admin">
                 <i class="fa fa-home fa-2x"></i>
                 Home
               </a>
