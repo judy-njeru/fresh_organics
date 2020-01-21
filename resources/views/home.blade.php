@@ -13,7 +13,7 @@
                 @else
                 <p>Below is a summary of your orders</p>
 
-                @foreach($orders as $key=> $order)
+
 
                 <div class="order-container">
                     <div class="row header">
@@ -23,7 +23,7 @@
                         </div>
                         <div class="col-sm-3 hd-dt">
                             <div>total</div>
-                            <div>DKK 42,47 </div>
+                            <div>DKK <span id="order-total"></span> </div>
                         </div>
                         <div class="col-sm-3 hd-dt">
                             <div>customer name</div>
@@ -34,6 +34,7 @@
                             <div>#222</div>
                         </div>
                     </div>
+                    @foreach($orders as $key=> $order)
                     <div class="order-overview">
                         <div class="row">
                             <div class="col-sm-3">
@@ -41,14 +42,14 @@
                             </div>
                             <div class="col-sm-9">
                                 <div>{{$order->name}} Meal Box</div>
-                                <div>DKK {{$order->price}}</div>
+                                <div>DKK <span class="meal-order-price">{{$order->price}}</span></div>
                                 <div>{{$order->quantity}}</div>
                             </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
 
-                @endforeach
 
 
 

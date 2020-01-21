@@ -1,4 +1,5 @@
 <div class="cart">
+    <div class="cart-overlay"></div>
     <div class="order-info">
         <div class="header">
             <div>Shopping Cart</div>

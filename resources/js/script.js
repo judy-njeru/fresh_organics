@@ -141,6 +141,7 @@ function getCart() {
         if (cartQuantity != 0) {
             console.log("item");
             $(".btnCompleteOrder").css("display", "block");
+            $(".cart-overlay").css("display", "block");
             $("#cart-order").empty();
             $("p.empty").css("display", "none");
             $("#cart-order").css("display", "block");
@@ -181,6 +182,7 @@ function getCart() {
             }
             $("#cart-order").append(cart);
         } else {
+            $(".cart-overlay").css("display", "none");
             $(".btnCompleteOrder").css("display", "none");
             $("p.empty").css("display", "block");
             $("p.empty").text("cart is empty");
@@ -257,6 +259,7 @@ $(document).on("click", ".btnDeleteCartItem", function(e) {
 /* ------------- Close Cart Overlay ------------------ */
 
 $(".btnCloseOrder").on("click", function() {
+    $(".cart-overlay").css("display", "none");
     $(".order-info").css("right", "-600px");
     $(".complete-order").removeClass("overlay");
     $("body").removeClass("full-height");
@@ -494,4 +497,13 @@ $(document).ready(function() {
 
         getCart(cartQty);
     });
+});
+
+$(document).ready(function() {
+    var total = 0;
+    $("span.meal-order-price").each(function(index) {
+        var element = $(this).text() * 1;
+        total += element;
+    });
+    $("#order-total").text(total);
 });

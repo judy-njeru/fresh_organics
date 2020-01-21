@@ -170,7 +170,7 @@
                 </div>
             </div>
 
-            <button class="button" id="btnAddMealBox" type="submit">Add Meal Box</button>
+            <button class="button" id="btnAddMealBox" type="submit">Add Meal Recipe</button>
             <a href="{{ route('meal-recipes.index') }}" class="button btn-danger">Cancel</a>
         </form>
     </div>

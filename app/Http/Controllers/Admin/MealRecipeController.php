@@ -294,10 +294,8 @@ class MealRecipeController extends Controller
         $ingredients = MealRecipe::with('ingredients')->find($mealRecipeID);
         $recipeImage = public_path("uploads/recipes/{$mealRecipe->image}"); // get previous image from folder
 
-        foreach ($ingredients->ingredients as $ingredient) {
-            $ingredientImage = public_path("uploads/ingredients/{$ingredient->image}");
-            unlink($ingredientImage);
-        }
+        $ingredientImage = public_path("uploads/ingredients/{$ingredients->image}");
+        unlink($ingredientImage);
         unlink($recipeImage);
         $mealRecipe->delete();
 

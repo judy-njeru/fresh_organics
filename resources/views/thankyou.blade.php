@@ -2,9 +2,9 @@
 
 @section('content')
 
-<div class="jumbotron text-center">
+<div class="jumbotron text-center ty">
   <h1 class="display-3">Thank You!</h1>
-  <p class="lead"><strong>Please check your email</strong> to view your order information.</p>
+  <p class="lead"><strong>Please check your account</strong> to view your order information.</p>
   <hr>
   <p>
     Have a question? <a href="">Contact us</a>
@@ -15,4 +15,3 @@
 </div>
 
 @endsection
-

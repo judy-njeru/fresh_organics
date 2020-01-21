@@ -11,6 +11,19 @@ div.complete-order {
     }
 }
 
+div.cart {
+    div.cart-overlay {
+        width: 100vw;
+        background: black;
+        height: 100vh;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0.3;
+        display: none;
+    }
+}
+
 div.order-info {
     position: fixed;
     top: 4.333em;

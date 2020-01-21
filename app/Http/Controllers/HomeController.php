@@ -39,6 +39,7 @@ class HomeController extends Controller
             ->join('order_details', 'meal_box_fk', '=', 'meal_boxes.id')
             ->where('order_details.user_fk', Auth::id())
             ->get();
+        // dd($orders);
         return view('home', ['orders' => $orders]);
     }
 }
